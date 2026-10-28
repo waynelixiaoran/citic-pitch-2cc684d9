@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>中信证券 · 中东主权客户简报</title>
+<style>
+  :root{
+    --red:#B61C22; --red-deep:#8E1519; --blue:#0069D1; --ink:#1E1E1E; --muted:#6B6B6B;
+    --paper:#FFF4E9; --white:#FFFFFF; --line:#E2DCD3; --dark:#1C1C1C; --gold:#C9A227;
+    --navy:#13284A;
+    --sans:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",system-ui,sans-serif;
+    --num:"Helvetica Neue",Arial,sans-serif;
+    --rail:240px; --max:1200px; --bar:54px; --section-y:88px; --card-gap:24px;
+    --shadow:0 1px 2px rgba(30,30,30,.05), 0 6px 16px rgba(30,30,30,.04);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .num{font-family:var(--num);font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1,"lnum" 1;}
+  .en{font-family:var(--num);letter-spacing:.12em;text-transform:uppercase;}
+
+  /* topbar */
+  .topbar{position:fixed;top:0;left:0;right:0;height:var(--bar);display:flex;align-items:center;gap:16px;
+    padding:0 24px;background:var(--paper);border-bottom:1px solid var(--line);z-index:50;}
+  .brand{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;color:var(--red);letter-spacing:.01em;}
+  .brand i{width:26px;height:26px;border-radius:4px;background:var(--red);color:#fff;display:flex;align-items:center;justify-content:center;font-style:normal;font-size:8.5px;font-weight:800;letter-spacing:.06em;box-shadow:inset 0 0 0 1px rgba(201,162,39,.55);}
+  .brand .logo{height:38px;width:auto;display:block;}
+  .topnav{margin-left:auto;display:flex;gap:22px;font-size:13px;color:var(--muted);align-items:center;}
+  .topnav a{padding:10px 0;border-bottom:1px solid transparent;transition:color .15s,border-color .15s;}
+  .topnav a:hover{color:var(--red);border-bottom-color:var(--gold);}
+  .progress{position:fixed;top:var(--bar);left:0;height:2px;background:var(--red);width:0;z-index:51;transition:width .1s linear;}
+
+  /* rail */
+  .rail{position:fixed;top:var(--bar);left:0;bottom:0;width:var(--rail);padding:36px 18px 32px;border-right:1px solid var(--line);background:var(--paper);z-index:40;overflow:auto;}
+  .rail .eyebrow{display:flex;align-items:center;gap:8px;font-size:11px;font-weight:700;letter-spacing:.14em;color:#6E675D;text-transform:uppercase;margin-bottom:20px;}
+  .rail .eyebrow::before{content:"";width:14px;height:2px;background:var(--red);flex:none;}
+  .rail ol{list-style:none;display:flex;flex-direction:column;gap:2px;}
+  .rail li a{display:flex;gap:12px;font-size:15px;font-weight:500;line-height:1.5;color:#5E584F;padding:9px 10px 9px 12px;border-left:2px solid transparent;border-radius:0 4px 4px 0;transition:color .15s,border-color .15s,background .15s;}
+  .rail li a .n{font-family:var(--num);font-size:11.5px;font-weight:600;color:#9A948A;min-width:20px;padding-top:2px;}
+  .rail li a:hover{color:var(--ink);border-left-color:var(--gold);background:#FBF7EF;}
+  .rail li a.on{color:var(--ink);border-left-color:var(--red);font-weight:700;background:#FBF7EF;}
+  .rail li a.on .n{color:var(--red);}
+  .rail .deep{margin-top:32px;padding-top:20px;border-top:1px solid var(--line);}
+  .rail .deep p{font-size:10.5px;font-weight:700;letter-spacing:.14em;color:#7A7368;margin-bottom:10px;text-transform:uppercase;}
+  .rail .deep a{display:block;font-size:14px;color:#5E584F;padding:7px 0;transition:color .15s;}
+  .rail .deep a:hover{color:var(--red);}
+
+  main{margin-left:var(--rail);padding-top:var(--bar);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 44px;}
+  section.ch{padding:var(--section-y) 0;border-top:1px solid var(--line);scroll-margin-top:calc(var(--bar) + 8px);}
+  #scale,#people,#primary,#you{background:var(--white);}
+
+  .chead{display:grid;grid-template-columns:44px 1fr;gap:20px;align-items:start;margin-bottom:40px;}
+  .chead .idx{font-family:var(--num);font-size:12px;line-height:1.2;font-weight:700;letter-spacing:.12em;color:var(--red);border-top:2px solid var(--red);padding-top:12px;width:34px;}
+  .chead h2{font-size:39px;line-height:1.3;font-weight:700;letter-spacing:0;text-wrap:balance;}
+  .chead p{color:var(--muted);font-size:16px;line-height:1.7;margin-top:10px;max-width:44em;text-wrap:pretty;}
+  .chead .more{display:inline-block;margin-top:12px;font-size:12.5px;color:var(--muted);border-bottom:1px solid var(--line);padding-bottom:2px;transition:color .15s,border-color .15s;}
+  .chead .more:hover{color:var(--red);border-color:var(--red);}
+
+  /* hero */
+  .hero{padding:104px 0 84px;border-top:0;border-bottom:2px solid var(--gold);background:var(--paper);}
+  .hero h1{font-size:clamp(44px,4.4vw,61px);line-height:1.3;font-weight:700;letter-spacing:0;max-width:16em;text-wrap:balance;}
+  .hero h1 em{font-style:normal;color:var(--red);}
+  .hero .calli{font-family:"Xingkai SC","STXingkai","Kaiti SC","STKaiti","Songti SC",serif;
+    font-size:clamp(24px,2.4vw,34px);line-height:1.35;color:var(--gold);letter-spacing:.16em;margin-bottom:18px;}
+  .hero .lede{margin-top:24px;font-size:20px;line-height:1.65;color:var(--ink);max-width:34em;text-wrap:pretty;}
+  .hero .rule{width:56px;height:3px;background:var(--red);margin:32px 0 28px;position:relative;}
+  .hero .rule::after{content:"";position:absolute;left:0;top:6px;width:32px;height:1px;background:var(--gold);}
+  .strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--ink);}
+  .strip a.s{display:block;padding:24px 24px 12px 0;border-right:1px solid var(--line);transition:background .15s;}
+  .strip a.s:last-child{border-right:0;}
+  .strip a.s:hover{background:rgba(255,255,255,.6);}
+  .strip a.s:hover .v{color:var(--red);}
+  .strip a.s:hover .k{border-top-color:var(--gold);}
+  .strip .v{font-family:var(--num);font-size:39px;font-weight:600;line-height:1.05;letter-spacing:-.02em;transition:color .15s;}
+  .strip .v small{font-size:16px;color:var(--muted);font-weight:500;}
+  .strip .k{font-size:13px;color:var(--muted);margin-top:10px;padding-top:10px;border-top:1px solid var(--line);line-height:1.55;max-width:22em;transition:border-color .15s;}
+
+  /* horizontal bands */
+  .two{display:grid;gap:52px;align-items:stretch;}
+  .two.left{grid-template-columns:5fr 7fr;}
+  .two.right{grid-template-columns:7fr 5fr;}
+  .two.left .prose{grid-column:1;grid-row:1;} .two.left .viz{grid-column:2;grid-row:1;}
+  .two.right .viz{grid-column:1;grid-row:1;} .two.right .prose{grid-column:2;grid-row:1;}
+  .full{display:block;}
+
+  .prose p{font-size:16px;line-height:1.7;margin-bottom:16px;max-width:34em;text-wrap:pretty;}
+  .prose .lead{font-size:20px;line-height:1.62;max-width:30em;margin-bottom:20px;}
+  .prose strong{font-weight:700;}
+  .prose .red{color:var(--red);font-weight:700;}
+
+  .callout{border-top:1px solid var(--ink);padding:16px 0 0;margin:30px 0;
+    font-size:20px;line-height:1.6;max-width:28em;}
+  .callout b{display:block;font-size:11.5px;font-weight:700;letter-spacing:.08em;color:var(--muted);margin-bottom:8px;}
+
+  .policy-list{display:flex;flex-direction:column;}
+  .policy-item{border-top:1px solid var(--line);padding:14px 0 15px;}
+  .policy-item:first-child{border-top:0;padding-top:2px;}
+  .policy-item .pk{font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--red);margin-bottom:6px;display:flex;align-items:center;gap:7px;}
+  #ca .policy-item{padding:15px 0 16px;}
+  #ca .policy-item .pk{font-size:14.5px;letter-spacing:.05em;margin-bottom:8px;}
+  #policy .policy-item .pk{font-size:13.5px;letter-spacing:.05em;margin-bottom:8px;}
+  .policy-item .pk::before{content:"";width:14px;height:2px;background:var(--gold);display:inline-block;flex:none;}
+  .policy-item ul{list-style:none;display:flex;flex-direction:column;gap:4px;}
+  .policy-item li{position:relative;padding-left:12px;font-size:13px;line-height:1.6;color:var(--ink);}
+  .policy-item li::before{content:"";position:absolute;left:0;top:.68em;width:4px;height:4px;border-radius:50%;background:var(--red);}
+
+
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin:8px 0 26px;}
+  .stats.four{grid-template-columns:repeat(4,1fr);}
+
+  /* execution capability modal */
+  .exec-open{display:inline-flex;align-items:center;gap:6px;margin-top:16px;background:none;border:0;border-bottom:1px solid currentColor;padding:0 0 3px;color:var(--red);font-family:var(--sans);font-size:12px;font-weight:600;cursor:pointer;}
+  .exec-open:hover{color:var(--red-deep);}
+  .exec-modal{position:fixed;inset:0;background:rgba(20,20,20,.58);display:none;align-items:center;justify-content:center;padding:28px;z-index:200;}
+  .exec-modal.open{display:flex;}
+  .exec-box{background:var(--white);width:100%;max-width:1260px;max-height:90vh;overflow:auto;border-top:3px solid var(--red);box-shadow:0 20px 60px rgba(0,0,0,.25);padding:24px 26px 20px;}
+  .exec-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding-bottom:14px;}
+  .exec-kicker{font-family:var(--num);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);margin-bottom:5px;}
+  .exec-head h3{font-size:24px;line-height:1.25;letter-spacing:0;}
+  .exec-close{border:0;background:none;font-size:28px;line-height:1;color:var(--muted);cursor:pointer;padding:0 4px;}
+  .exec-close:hover{color:var(--red);}
+  .exec-note{font-size:11px;color:var(--muted);margin:12px 0 8px;}
+  .exec-scroll{overflow:auto;max-height:calc(90vh - 160px);}
+  .exec-table{width:100%;min-width:1080px;border-collapse:collapse;font-size:11px;}
+  .exec-table th,.exec-table td{border-bottom:1px solid #F0EAE1;padding:8px 6px;text-align:center;white-space:nowrap;}
+  .exec-table th{font-size:10px;color:var(--muted);font-weight:600;line-height:1.35;white-space:normal;min-width:56px;background:#FAF6F0;position:sticky;top:0;z-index:2;}
+  .exec-table th:first-child{left:0;z-index:3;background:#FAF6F0;min-width:116px;}
+  .exec-table td:first-child{text-align:left;font-weight:600;color:var(--ink);position:sticky;left:0;background:var(--white);z-index:1;min-width:116px;}
+  .exec-table tr:hover td{background:#FFF7EE;}
+  .exec-table tr:hover td:first-child{background:#FFF7EE;}
+  .exec-table .ok{color:var(--red);font-weight:700;font-size:13px;}
+  .exec-table .na{color:#C7BFB4;}
+  .exec-table .rowlab{font-size:11.5px;}
+  @media(max-width:620px){.exec-modal{padding:10px;}.exec-box{padding:16px 14px 12px;}.exec-head h3{font-size:19px;}.exec-note{font-size:10.5px;}}
+
+
+  /* bespoke trip route */
+  .bt{position:relative;display:flex;flex-direction:column;margin-top:4px;}
+  .bt::before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:1px;background:var(--line);}
+  .bt-stop{padding-bottom:22px;}
+  .bt-stop:last-child{padding-bottom:0;}
+  .bt-row{display:flex;align-items:flex-start;gap:14px;}
+  .bt-dot{flex:none;width:11px;height:11px;border-radius:50%;background:var(--red);margin-top:3px;position:relative;z-index:1;box-shadow:0 0 0 3px #fff;}
+  .bt-city{flex:none;width:60px;font-family:var(--num);font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--red);line-height:1.3;padding-top:1px;}
+  .bt-body{min-width:0;flex:1;}
+  .bt-top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;}
+  .bt-client{font-weight:700;font-size:14px;line-height:1.4;letter-spacing:0;}
+  .bt-dur{flex:none;font-family:var(--num);font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line);padding:2px 6px;white-space:nowrap;}
+  .bt-arr{font-size:12px;color:var(--muted);line-height:1.55;margin-top:3px;}
+  .bt-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px;}
+  .bt-tag{font-family:var(--num);font-size:10.5px;line-height:1;color:var(--ink);border:1px solid var(--line);padding:4px 7px;background:var(--white);}
+  .bt-tag.bt-extra{color:#8E6A12;border-color:rgba(201,162,39,.45);}
+
+  /* bespoke trip grid */
+  .trip-wide{margin-top:34px;}
+  .trip-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);}
+  .trip-card{min-width:0;padding:18px 26px 6px;border-left:1px solid var(--line);}
+  .trip-card:first-child{border-left:0;padding-left:0;}
+  .trip-card:last-child{padding-right:0;}
+  .trip-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;}
+  .trip-city{display:inline-flex;align-items:center;gap:8px;font-family:var(--num);font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--red);}
+  .trip-city::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--red);flex:none;}
+  .trip-client{font-size:15px;font-weight:700;line-height:1.4;margin-top:7px;}
+  .trip-arr{font-size:12px;color:var(--muted);line-height:1.55;margin-top:4px;}
+  .trip-card .bt-tags{margin-top:10px;}
+  @media(max-width:900px){
+    .trip-grid{grid-template-columns:1fr;}
+    .trip-card{border-left:0;border-top:1px solid var(--line);padding:16px 0 18px;}
+    .trip-card:first-child{border-top:0;padding-top:0;}
+  }
+
+  .ca-card .callout{margin-top:auto;margin-bottom:0;font-size:16px;line-height:1.6;}
+  /* industry trips 2x2 */
+  .trip-grid.two{grid-template-columns:repeat(2,1fr);}
+  .trip-grid.two .trip-card:nth-child(odd){border-left:0;padding-left:0;}
+  .trip-grid.two .trip-card:nth-child(n+3){border-top:1px solid var(--line);padding-top:18px;}
+  @media(max-width:900px){
+    .trip-grid.two{grid-template-columns:1fr;}
+    .trip-grid.two .trip-card{border-left:0;border-top:1px solid var(--line);padding:16px 0 18px;}
+    .trip-grid.two .trip-card:first-child{border-top:0;padding-top:0;}
+  }
+
+  /* CA + trip typography scale */
+  #ca .viz .cap{font-size:13.5px;}
+  #ca .viz .cap b{font-size:17px;}
+  #ca .policy-item .pk{font-size:15px;margin-bottom:9px;}
+  #ca .policy-item li{font-size:14.5px;line-height:1.65;}
+  #ca .ca-card .callout{font-size:17px;line-height:1.65;}
+  .trip-wide .cap{font-size:13.5px;}
+  .trip-wide .cap b{font-size:17px;}
+  .trip-city{font-size:11px;}
+  .trip-client{font-size:17px;}
+  .trip-arr{font-size:13.5px;line-height:1.6;}
+  .trip-card .bt-tag{font-size:11.5px;padding:5px 8px;}
+  .trip-card .bt-dur{font-size:9.5px;}
+
+  /* IE client groups */
+  .cf-desc{font-size:11px;color:var(--muted);line-height:1.5;margin:-3px 0 10px;}
+  .cf-roster.cf-two{display:block;columns:2;column-gap:16px;}
+  .cf-roster.cf-two li{break-inside:avoid;}
+  @media(max-width:700px){.cf-roster.cf-two{columns:1;}}
+  @media(max-width:1200px){
+    .cf-grid{grid-template-columns:1fr 1fr;}
+    .cf-col:nth-child(2){border-right:0;}
+    .cf-col:nth-child(-n+2){border-bottom:1px solid var(--line);}
+  }
+
+  /* client franchise */
+  .cf{margin-top:34px;background:var(--white);border:1px solid var(--line);box-shadow:var(--shadow);break-inside:avoid;}
+  .cf-head{background:var(--navy);color:#fff;display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:14px 20px;}
+  .cf-head .cf-kicker{font-family:var(--num);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
+  .cf-head .cf-title{font-size:17px;font-weight:700;letter-spacing:0;line-height:1.3;margin-left:10px;}
+  .cf-head .cf-meta{font-family:var(--num);font-size:11px;letter-spacing:.06em;color:#B9C4D8;white-space:nowrap;}
+  .cf-grid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);}
+  .cf-col{padding:18px 22px 20px;border-right:1px solid var(--line);min-width:0;}
+  .cf-col:last-child{border-right:0;}
+  .cf-label{font-size:10.5px;font-weight:700;letter-spacing:.08em;color:var(--red);margin-bottom:10px;display:flex;align-items:center;gap:7px;}
+  .cf-label::before{content:"";width:14px;height:2px;background:var(--gold);display:inline-block;flex:none;}
+  .cf-roster{list-style:none;display:flex;flex-direction:column;}
+  .cf-roster li{font-size:12.5px;line-height:1.55;color:var(--ink);padding:8px 0;border-bottom:1px solid #F0EAE1;}
+  .cf-roster li:last-child{border-bottom:0;}
+  .cf-me{display:grid;grid-template-columns:260px minmax(0,1fr);column-gap:28px;align-items:start;background:var(--navy);color:#fff;padding:16px 20px;border-top:2px solid var(--gold);}
+  .cf-me-label{display:flex;align-items:baseline;gap:9px;font-size:12.5px;font-weight:700;letter-spacing:.02em;grid-column:1;grid-row:1;padding-top:4px;}
+  .cf-me-kicker{font-family:var(--num);font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
+  .cf-me-roster{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px 10px;grid-column:2;grid-row:1;margin-top:0;}
+  .cf-me-roster span{display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--num);font-size:11px;letter-spacing:.02em;color:#F4EFE7;border:1px solid rgba(255,255,255,.22);padding:5px 8px;line-height:1.4;min-height:28px;}
+  .cf-me-note{grid-column:1/-1;font-size:11px;color:#B9C4D8;line-height:1.6;margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,.14);}
+  @media(max-width:1100px){
+    .cf-me{grid-template-columns:1fr;}
+    .cf-me-label{grid-column:1;grid-row:auto;}
+    .cf-me-roster{grid-column:1;grid-row:auto;margin-top:10px;}
+  }
+  @media(max-width:900px){
+    .cf-grid{grid-template-columns:1fr 1fr;}
+    .cf-col:nth-child(2){border-right:0;}
+    .cf-col:nth-child(-n+2){border-bottom:1px solid var(--line);}
+  }
+  @media(max-width:560px){
+    .cf-grid{grid-template-columns:1fr;}
+    .cf-me-roster{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .cf-col{border-right:0;border-bottom:1px solid var(--line);}
+    .cf-col:nth-child(n+3){border-bottom:1px solid var(--line);}
+    .cf-col:last-child{border-bottom:0;}
+    .cf-head{flex-wrap:wrap;}
+  }
+
+  @media(max-width:900px){.stats.four{grid-template-columns:1fr 1fr;}}
+  #you .stats{grid-template-columns:repeat(2,1fr);}
+  .stats .s .v{font-family:var(--num);font-size:31px;font-weight:600;line-height:1.1;}
+  .stats .s .v small{font-size:14px;color:var(--muted);font-weight:500;}
+  .stats .s .k{font-size:13px;color:var(--muted);margin-top:5px;line-height:1.55;}
+  @media (min-width:981px){
+    #china .two.right{grid-template-columns:5fr 7fr;}
+  }
+
+  /* SBL pool table */
+  .pool{margin-top:34px;}
+  .pool .cap{flex-wrap:wrap;gap:6px 16px;margin-bottom:14px;}
+  .pool-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .pool-table{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white);}
+  .pool-table th{text-align:left;font-weight:700;color:var(--muted);padding:11px 14px;border-bottom:2px solid var(--ink);font-size:12px;letter-spacing:.04em;white-space:nowrap;}
+  .pool-table td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:middle;line-height:1.5;}
+  .pool-table tbody tr td:first-child{font-weight:600;}
+  .pool-table tbody tr:hover td{background:#FFF7EE;}
+  .pool-table .n{text-align:right;font-family:var(--num);font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .pool-table td.n{font-size:14px;}
+  .pool-table tr.total td{border-top:2px solid var(--ink);border-bottom:0;font-weight:700;background:#FBF7EF;}
+  .pool-table tr.total td:first-child{color:var(--red);}
+  .pool-table tr.total td.n{font-size:15px;}
+  .pool-note{font-size:12px;color:var(--muted);line-height:1.65;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);}
+  @media(max-width:720px){.pool-table{min-width:560px;}}
+  @media print{.pool-table{min-width:0;}}
+
+  /* CLSA network map */
+  .netmap-img{margin-top:10px;overflow-x:auto;border:1px solid var(--line);background:#fff;}
+  .netmap-img img{display:block;width:100%;height:auto;min-width:0;}
+  .netmap-note{font-size:11.5px;line-height:1.65;color:var(--muted);border-top:1px solid var(--line);margin-top:12px;padding-top:10px;}
+  .netmap-note a{color:var(--red);text-decoration:none;border-bottom:1px solid rgba(182,28,34,.3);}
+  @media(max-width:720px){.netmap-img img{min-width:760px;}}
+  @media print{.netmap-img img{min-width:0;}}
+
+  /* data plate */
+  .viz{background:var(--white);border:1px solid var(--line);border-top:2px solid var(--ink);padding:24px 24px 18px;display:flex;flex-direction:column;box-shadow:var(--shadow);}
+  .viz .cap{flex:none;font-size:13px;color:var(--muted);margin-bottom:18px;display:flex;justify-content:space-between;gap:16px;align-items:baseline;line-height:1.5;}
+  .viz .cap b{color:var(--ink);font-weight:700;font-size:15px;}
+  .viz .src{flex:none;font-size:12px;color:var(--muted);border-top:1px solid var(--line);margin-top:auto;padding-top:18px;line-height:1.55;}
+
+  .bars{display:flex;flex-direction:column;justify-content:space-between;gap:14px;flex:1;}
+  .bar{display:grid;grid-template-columns:130px 1fr 76px;gap:14px;align-items:center;font-size:13.5px;}
+  .bar .lb{color:var(--ink);}
+  .bar .track{height:16px;background:#F2ECE4;background:color-mix(in oklab,var(--line) 62%,var(--white));position:relative;overflow:hidden;}
+  .bar .fill{position:absolute;inset:0 auto 0 0;background:var(--blue);width:0;transition:width .9s cubic-bezier(.2,.7,.2,1);}
+  .bar .fill.ink{background:#4A4A4A;}
+  .bar .fill.blue{background:var(--blue);}
+  .bar .vv{font-family:var(--num);font-size:13.5px;text-align:right;color:var(--ink);}
+
+  /* three-column card band */
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--card-gap);margin-top:34px;}
+  .card3{background:var(--white);border:1px solid var(--line);display:flex;flex-direction:column;min-width:0;box-shadow:var(--shadow);}
+  .card3 .top{height:clamp(152px,13.8vw,240px);display:flex;align-items:flex-end;padding:18px 20px;position:relative;overflow:hidden;}
+  .card3 .top.red{background:var(--red);}
+  .card3 .top.blue{background:var(--navy);}
+  .card3 .top.ink{background:var(--ink);}
+  .card3 .top .big{position:relative;z-index:1;font-size:56px;font-weight:700;line-height:1;letter-spacing:0;color:#fff;}
+  .card3 .top .en{position:relative;z-index:1;font-size:10.5px;color:rgba(255,255,255,.85);margin-left:10px;padding-bottom:6px;letter-spacing:.14em;}
+  .card3 .body{padding:20px 20px 24px;display:flex;flex-direction:column;flex:1;}
+  .card3 .label{font-size:11.5px;letter-spacing:.02em;color:var(--muted);line-height:1.5;}
+  .card3 h3{font-size:20px;line-height:1.35;letter-spacing:0;font-weight:700;margin:7px 0 10px;}
+  .card3 p{font-size:14px;color:var(--muted);line-height:1.7;max-width:34em;text-wrap:pretty;}
+  .card3 .top .ic{position:absolute;top:16px;right:18px;width:26px;height:26px;opacity:.9;z-index:1;}
+  .card3 .top .ic svg{width:100%;height:100%;}
+  .card3 .more2{display:inline-block;margin-top:auto;padding-top:14px;font-size:12px;font-weight:600;color:var(--red);border-bottom:1px solid currentColor;align-self:flex-start;}
+  .card3 .more2:hover{color:var(--red-deep);}
+
+  /* dark band */
+  .darkband{background:var(--dark);color:#F4EFE7;padding:104px 0;border-top:2px solid var(--gold);}
+  .darkband .two{gap:56px;}
+  .darkband .chead .idx{color:#E9A0A0;border-top-color:#E9A0A0;}
+  .darkband .chead h2{color:#fff;}
+  .darkband .chead p{color:#C9C1B5;}
+  .darkband .chead .more{color:#C9C1B5;border-color:#6E655A;}
+  .darkband .chead .more:hover{color:#fff;border-color:#fff;}
+  .darkband .prose p,.darkband .prose .lead{color:#E8E2D8;}
+  .darkband .callout{border-top-color:#6E655A;color:#F4EFE7;}
+  .darkband .callout b{color:#C9C1B5;}
+  .darkband .stats .v{color:#fff;}
+  .darkband .stats .k{color:#C9C1B5;}
+  .darkband .viz{background:#242424;border-color:#3A3A3A;border-top-color:var(--gold);box-shadow:none;}
+  .darkband .viz .cap{color:#B8B0A4;}
+  .darkband .viz .cap b{color:#fff;}
+  .darkband .viz .src{color:#9A948A;border-color:#3A3A3A;}
+  .darkband .cases{border-top-color:#3A3A3A;}
+  .darkband .case{border-color:#3A3A3A;}
+  .darkband .case .nm{color:#fff;}
+  .darkband .case .ds{color:#C9C1B5;}
+  .darkband .case .ev{color:#9A948A;}
+  .darkband .src{color:#9A948A;}
+  .darkband .cap b{color:#fff;}
+  .darkband .cap span{color:#B8B0A4;}
+  .darkband .cmp{background:var(--white);}
+  .darkband .cmp th{color:var(--muted);border-bottom-color:var(--ink);}
+  .darkband .cmp td{color:var(--ink);}
+  .darkband .cmp td.hl{color:var(--red);}
+
+  .ledger{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#3E3E3E;border:1px solid #3E3E3E;margin-top:8px;}
+  .ledger span{background:#242424;min-height:66px;display:flex;align-items:center;padding:0 14px;font-size:13.5px;color:#D6CFC4;letter-spacing:.01em;}
+  .ledger .home{background:var(--red);color:#fff;font-weight:700;}
+  .ledger .global{background:#191919;color:#A8A198;}
+
+  /* sales trading */
+  #sales .viz{border-top-color:var(--red);}
+  #sales .viz .callout b{color:var(--red);}
+  .st-services{margin-top:20px;border-top:1px solid var(--line);}
+  .st-service{padding:13px 0;border-bottom:1px solid var(--line);}
+  .st-service:last-child{border-bottom:0;padding-bottom:0;}
+  .st-label{display:flex;align-items:baseline;gap:10px;font-family:var(--sans);font-size:14.5px;font-weight:700;color:var(--red);line-height:1.4;}
+  .st-label .n{font-family:var(--num);font-size:9.5px;font-weight:600;letter-spacing:.12em;color:var(--muted);}
+  .st-service p{font-size:12.5px;line-height:1.7;color:var(--ink);margin-top:3px;}
+  #sales .steps{margin-top:28px;}
+
+  /* process */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:12px;}
+  .steps .st{padding:18px 18px 0 0;border-right:1px solid var(--line);}
+  .steps .st:last-child{border-right:0;}
+  .steps .st .n{font-family:var(--num);font-size:11.5px;color:var(--red);}
+  .steps .st .t{font-weight:700;font-size:14px;line-height:1.45;margin:5px 0 4px;}
+  .steps .st .d{font-size:12.5px;color:var(--muted);line-height:1.6;}
+
+  /* case rows */
+  .cases{display:flex;flex-direction:column;border-top:1px solid var(--line);}
+  .case{display:grid;grid-template-columns:170px 1fr auto;gap:20px;padding:16px 0;border-bottom:1px solid var(--line);align-items:baseline;}
+  .case .nm{font-weight:700;font-size:15px;line-height:1.5;}
+  .case .ds{color:var(--muted);font-size:13px;line-height:1.65;}
+  .case .ev{font-family:var(--num);font-size:11px;color:var(--muted);white-space:nowrap;}
+
+  /* comparison */
+  .cmp{width:100%;border-collapse:collapse;font-size:13.5px;background:var(--white);}
+  .cmp th{text-align:left;font-weight:700;color:var(--muted);padding:12px 14px;border-bottom:2px solid var(--ink);font-size:12px;letter-spacing:.04em;}
+  .cmp td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.6;}
+  .cmp td.hl{color:var(--red);font-weight:700;}
+  .cmp tr:last-child td{border-bottom:0;}
+
+  /* donut */
+  .donut{display:flex;align-items:center;gap:24px;}
+  .donut svg{flex:none;}
+  .donut .lg .v{font-family:var(--num);font-size:31px;font-weight:600;line-height:1.1;color:var(--blue);}
+  .donut .lg .k{font-size:13px;color:var(--muted);max-width:30em;margin-top:5px;line-height:1.65;}
+  .donut svg text:first-of-type{fill:var(--blue);}
+  .donut svg text:last-of-type{fill:var(--muted);}
+  .donut svg circle:nth-of-type(2){stroke:var(--blue);}
+
+  /* inline captions in the two custom bands: keep them on the same scale as .viz .cap */
+  #asia .two > div:last-child > div:first-child{font-size:13px!important;}
+  #asia .two > div:last-child > div:first-child b{font-size:15px!important;}
+  #asia .two > div:last-child > div:last-child{font-size:12px!important;}
+  #trade .two.left > div:last-child > div:first-child{font-size:13px!important;}
+  #trade .two.left > div:last-child > div:first-child b{font-size:15px!important;}
+
+  /* cta */
+  .cta{padding:104px 0 120px;border-top:1px solid var(--line);background:var(--paper);}
+  .cta h2{font-size:49px;line-height:1.3;max-width:22em;letter-spacing:0;text-wrap:balance;}
+  .cta .links{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap;}
+  .cta .links a{border:1px solid var(--line);padding:0 22px;min-height:48px;display:inline-flex;align-items:center;font-size:14px;font-weight:600;background:var(--white);transition:background .15s,border-color .15s;}
+  .cta .links a:hover{border-color:var(--ink);background:var(--paper);}
+  .cta .links a.pri{background:var(--red);border-color:var(--red);color:#fff;}
+  .cta .links a.pri:hover{background:var(--red-deep);border-color:var(--red-deep);}
+
+  footer{margin-left:var(--rail);border-top:1px solid var(--line);padding:28px max(44px,calc((100vw - var(--rail) - var(--max))/2 + 44px));font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 20px;}
+
+  a:focus-visible,button:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+  .darkband a:focus-visible{outline-color:#fff;}
+  .cta .links a.pri:focus-visible{outline-color:var(--ink);}
+
+  /* 1600px projection */
+  @media (min-width:1600px){
+    :root{--rail:240px;--bar:60px;--section-y:112px;--max:min(1520px,calc(100vw - var(--rail) - 96px));--card-gap:28px;}
+    body{font-size:19px;}
+    .topbar{padding:0 30px;}
+    .brand{font-size:16px;}
+    .brand i{width:30px;height:30px;font-size:9.5px;}
+    .topnav{font-size:15px;}
+    .rail{padding:48px 24px;}
+    .rail .eyebrow{font-size:12px;}
+    .rail li a{font-size:17px;padding:10px 12px 10px 14px;}
+    .rail li a .n{font-size:12.5px;}
+    .rail li.grp{font-size:11.5px;margin-top:24px;}
+    .rail .deep p{font-size:11.5px;}
+    .rail .deep a{font-size:15px;}
+    .wrap{padding:0 48px;}
+    .chead{grid-template-columns:50px 1fr;gap:24px;margin-bottom:48px;}
+    .chead .idx{font-size:14px;width:40px;padding-top:14px;}
+    .chead h2{font-size:50px;}
+    .chead p{font-size:19px;max-width:44em;}
+    .chead .more{font-size:14px;}
+    .hero{padding:120px 0 96px;}
+    .hero h1{font-size:82px;}
+    .hero .lede{font-size:25px;max-width:32em;}
+    .hero .rule{width:64px;height:4px;}
+    .strip .v{font-size:50px;}
+    .strip .k{font-size:16px;}
+    .strip a.s{padding:28px 28px 10px 0;}
+    .prose p{font-size:19px;}
+    .prose .lead{font-size:25px;}
+    .callout{font-size:25px;}
+    .callout b{font-size:13px;}
+    .stats .v{font-size:36px;}
+    .stats .k{font-size:15px;}
+    .viz{padding:30px 30px 22px;}
+    .viz .cap{font-size:15px;}
+    .viz .cap b{font-size:18px;}
+    .viz .src{font-size:14px;}
+    .bar{grid-template-columns:160px 1fr 90px;gap:16px;font-size:16px;}
+    .bar .track{height:20px;}
+    .bar .vv{font-size:16px;}
+    .cards3{gap:28px;margin-top:44px;}
+    .card3 .top{padding:22px 24px;}
+    .card3 .top .big{font-size:64px;}
+    .card3 .top .en{font-size:12px;}
+    .card3 .body{padding:24px 24px 28px;}
+    .card3 .label{font-size:13px;}
+    .card3 h3{font-size:25px;}
+    .card3 p{font-size:17px;}
+    .darkband{padding:128px 0;}
+    .darkband .two{gap:64px;}
+    .ledger span{min-height:78px;font-size:16px;padding:0 18px;}
+    .case .nm{font-size:18px;}
+    .case .ds{font-size:16px;}
+    .case .ev{font-size:13px;}
+    .cmp{font-size:16px;}
+    .cmp th{font-size:14px;}
+    .cmp td{padding:14px 16px;}
+    .donut .lg .v{font-size:40px;}
+    .donut .lg .k{font-size:16px;}
+    .donut{gap:32px;}
+    .donut svg{width:160px;height:160px;}
+    #asia .two > div:last-child > div:first-child{font-size:15px!important;}
+    #asia .two > div:last-child > div:first-child b{font-size:18px!important;}
+    #asia .two > div:last-child > div:last-child{font-size:14px!important;}
+    #trade .two.left > div:last-child > div:first-child{font-size:15px!important;}
+    #trade .two.left > div:last-child > div:first-child b{font-size:18px!important;}
+    .cta{padding:120px 0 136px;}
+    .cta h2{font-size:62px;}
+    .cta .links a{font-size:17px;min-height:54px;padding:0 28px;}
+    footer{font-size:14px;padding:32px max(48px,calc((100vw - var(--rail) - var(--max))/2 + 48px));}
+  }
+  @media (min-width:1800px){
+    body{font-size:21px;}
+    .chead h2{font-size:54px;}
+    .chead p{font-size:21px;}
+    .chead .more{font-size:15px;}
+    .hero h1{font-size:88px;}
+    .hero .lede{font-size:27px;}
+    .prose p{font-size:21px;}
+    .prose .lead{font-size:27px;}
+    .callout{font-size:27px;}
+    .stats .v{font-size:38px;}
+    .stats .k{font-size:16px;}
+    .strip .v{font-size:56px;}
+    .strip .k{font-size:17px;}
+    .card3 h3{font-size:27px;}
+    .card3 p{font-size:18px;}
+    .card3 .label{font-size:14px;}
+    .case .ds{font-size:17px;}
+    .cmp{font-size:17px;}
+    .cta h2{font-size:68px;}
+    .bar{font-size:17px;}
+    .bar .vv{font-size:17px;}
+    .viz .cap{font-size:16px;}
+    .viz .cap b{font-size:19px;}
+    .donut .lg .v{font-size:44px;}
+    .donut .lg .k{font-size:17px;}
+    .donut{gap:36px;}
+    .donut svg{width:176px;height:176px;}
+    #asia .two > div:last-child > div:first-child{font-size:16px!important;}
+    #asia .two > div:last-child > div:first-child b{font-size:19px!important;}
+    #asia .two > div:last-child > div:last-child{font-size:15px!important;}
+    #trade .two.left > div:last-child > div:first-child{font-size:16px!important;}
+    #trade .two.left > div:last-child > div:first-child b{font-size:19px!important;}
+  }
+
+  @media (max-width:980px){
+    :root{--section-y:64px;}
+    .rail{display:none;} main,footer{margin-left:0;}
+    .wrap{padding:0 22px;}
+    .hero{padding:70px 0 56px;}
+    .hero h1{font-size:clamp(34px,8.5vw,46px);}
+    .hero .lede{font-size:18px;}
+    .strip{grid-template-columns:repeat(2,1fr);}
+    .strip a.s{border-right:0;border-bottom:1px solid var(--line);padding:18px 0 12px;}
+    .two.left,.two.right{grid-template-columns:1fr;gap:32px;}
+    .two.left .prose,.two.left .viz,.two.right .prose,.two.right .viz{grid-column:auto;grid-row:auto;}
+    .chead{grid-template-columns:36px 1fr;gap:14px;margin-bottom:30px;}
+    .chead .idx{width:28px;padding-top:9px;}
+    .chead h2{font-size:30px;}
+    .chead p{font-size:15px;}
+    .prose .lead{font-size:18px;}
+    .cards3{grid-template-columns:1fr;gap:18px;margin-top:26px;}
+    .card3 .top{height:136px;}
+    .card3 .body{padding:18px 20px 22px;}
+    .stats{grid-template-columns:1fr 1fr;}
+    .steps{grid-template-columns:1fr 1fr;}
+    .steps .st{border-right:0;border-bottom:1px solid var(--line);padding:14px 0;}
+    .case{grid-template-columns:1fr auto;gap:2px 12px;}
+    .case .nm{grid-column:1;} .case .ev{grid-column:2;grid-row:1;} .case .ds{grid-column:1/-1;}
+    .donut{flex-direction:column;align-items:flex-start;gap:16px;}
+    .ledger{grid-template-columns:repeat(2,1fr);}
+    .ledger span{min-height:56px;}
+    .cta{padding:64px 0 80px;}
+    .cta h2{font-size:32px;}
+    footer{padding:24px 22px;}
+  }
+  @media (max-width:720px){
+    .bar{grid-template-columns:96px 1fr 56px;gap:8px;font-size:12px;}
+    .bar .vv{font-size:12px;}
+    .cmp thead{display:none;}
+    .cmp,.cmp tbody,.cmp tr,.cmp td{display:block;width:100%;}
+    .cmp tr{padding:12px 0;border-bottom:1px solid var(--line);}
+    .cmp td{border:0;padding:3px 0;font-size:13px;}
+    .cmp td.hl{font-size:15px;}
+  }
+  @media (max-width:560px){
+    .topbar{padding:0 14px;}
+    .brand{font-size:0;gap:0;}
+    .brand i{font-size:9px;}
+    .topnav{gap:12px;font-size:12px;}
+    .topnav a{padding:14px 2px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important;}
+  }
+
+  @media print{
+    @page{size:A4;margin:14mm;}
+    html,body{background:#fff!important;}
+    body{font-size:12pt!important;line-height:1.55!important;}
+    body *{font-size:12pt!important;line-height:1.55!important;}
+    .topbar,.rail,.progress{display:none!important;}
+    main,footer{margin-left:0!important;padding-top:0!important;}
+    .wrap{max-width:none;padding:0;}
+    .two.left,.two.right{grid-template-columns:1fr;gap:14pt;}
+    .two.left .prose,.two.left .viz,.two.right .prose,.two.right .viz{grid-column:auto;grid-row:auto;}
+    .strip{grid-template-columns:repeat(4,1fr);}
+    .strip a.s{border-right:1px solid var(--line);border-bottom:0;}
+    .stats{grid-template-columns:repeat(3,1fr);}
+    .steps{grid-template-columns:repeat(4,1fr);}
+    .steps .st{border-right:1px solid var(--line);border-bottom:0;padding:8pt 10pt 0 0;}
+    .ledger{grid-template-columns:repeat(4,1fr);}
+    .donut{flex-direction:row;align-items:center;}
+    section.ch{background:#fff!important;padding:24pt 0;border-top:1px solid #CFC7BC;break-inside:auto;}
+    .chead{margin-bottom:18pt;break-after:avoid;}
+    .chead .idx{font-size:12pt!important;color:var(--red)!important;border-top-color:var(--red)!important;width:24pt;padding-top:6pt;}
+    .chead h2{font-size:20pt!important;line-height:1.35!important;}
+    .chead p{font-size:12pt!important;max-width:46em;}
+    .chead .more{font-size:12pt!important;}
+    .hero{padding:16pt 0 20pt!important;}
+    .hero h1,.hero h1 em{font-size:30pt!important;line-height:1.35!important;}
+    .hero .lede{font-size:13pt!important;max-width:34em;}
+    .hero .rule{width:40pt;height:2pt;}
+    .strip a.s{break-inside:avoid;padding:8pt 12pt 4pt 0;}
+    .strip .v{font-size:24pt!important;}
+    .strip .v small{font-size:12pt!important;}
+    .strip .k{font-size:12pt!important;}
+    .prose p{font-size:12pt!important;max-width:34em;}
+    .prose .lead{font-size:13pt!important;}
+    .callout{font-size:13pt!important;break-inside:avoid;}
+    .callout b{font-size:12pt!important;}
+    .stats .v{font-size:18pt!important;}
+    .stats .v small{font-size:12pt!important;}
+    .stats .k{font-size:12pt!important;}
+    .viz,.card3,.case,.cmp,.ledger{break-inside:avoid;}
+    .viz{border-top:1pt solid var(--ink);padding:10pt 10pt 8pt;}
+    .viz .cap,.viz .cap b,.viz .src{font-size:12pt!important;}
+    .bar{grid-template-columns:100pt 1fr 36pt;gap:6pt;font-size:12pt!important;}
+    .bar .vv{font-size:12pt!important;}
+    .bar .track{height:10pt;}
+    .cards3{grid-template-columns:repeat(3,1fr);gap:10pt;margin-top:12pt;break-inside:auto;}
+    .card3 .top{height:72pt;}
+    .card3 .top .big{font-size:40pt!important;}
+    .card3 .top .en{font-size:12pt!important;}
+    .card3 .body{padding:10pt;}
+    .card3 .label{font-size:12pt!important;}
+    .card3 h3{font-size:14pt!important;line-height:1.35!important;}
+    .card3 p{font-size:12pt!important;}
+    .darkband{background:#fff!important;color:var(--ink)!important;border-top:2pt solid var(--red);padding:24pt 0;}
+    .darkband .chead h2,.darkband .prose p,.darkband .prose .lead,.darkband .callout,.darkband .stats .v{color:var(--ink)!important;}
+    .darkband .chead p,.darkband .chead .idx,.darkband .chead .more,.darkband .callout b,.darkband .stats .k{color:var(--muted)!important;}
+    .darkband .chead .idx{border-top-color:var(--red)!important;}
+    .darkband .callout{border-top-color:var(--ink)!important;}
+    #asia .two > div:last-child > div{color:var(--ink)!important;border-color:var(--line)!important;font-size:12pt!important;}
+    #asia .two > div:last-child > div b{color:var(--ink)!important;font-size:13pt!important;}
+    #asia .two > div:last-child > div:first-child{font-size:12pt!important;}
+    #asia .two > div:last-child > div:first-child b{font-size:13pt!important;}
+    #asia .two > div:last-child > div:last-child{font-size:12pt!important;}
+    #trade .two.left > div:last-child > div:first-child{font-size:12pt!important;}
+    #trade .two.left > div:last-child > div:first-child b{font-size:13pt!important;}
+    .ledger{background:var(--line)!important;border-color:var(--line)!important;}
+    .ledger span{background:#fff!important;color:var(--ink)!important;min-height:0;padding:8pt;}
+    .ledger .home{background:var(--red)!important;color:#fff!important;}
+    .ledger .global{background:#fff!important;color:var(--muted)!important;}
+    .steps .st{break-inside:avoid;}
+    .steps .n,.steps .t,.steps .d{font-size:12pt!important;}
+    .case{grid-template-columns:1fr;gap:2pt;padding:8pt 0;}
+    .case .nm,.case .ds,.case .ev{font-size:12pt!important;}
+    .case .ev{white-space:normal;grid-column:1;}
+    .cmp{font-size:12pt!important;}
+    .cmp th,.cmp td{font-size:12pt!important;padding:6pt 8pt;}
+    .donut{break-inside:avoid;}
+    .donut svg text{font-size:12pt!important;}
+    .donut svg text:first-of-type{font-size:18pt!important;}
+    .donut .lg .v{font-size:18pt!important;}
+    .donut .lg .k{font-size:12pt!important;}
+    .cta{padding:24pt 0 32pt!important;background:#fff!important;break-inside:avoid;}
+    .cta h2{font-size:22pt!important;line-height:1.35!important;}
+    .cta .links a{font-size:12pt!important;min-height:0;padding:6pt 10pt;}
+    footer{font-size:12pt!important;padding:12pt 0;border-top:1px solid #CFC7BC;}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  }
+
+
+  /* v2: two-part structure */
+  .rail li.grp{display:flex;align-items:center;gap:8px;font-size:10.5px;font-weight:700;letter-spacing:.14em;color:#7A7368;text-transform:uppercase;margin:22px 0 6px;padding-left:12px;}
+  .rail li.grp::after{content:"";flex:1;height:1px;background:var(--line);}
+  .part{background:var(--ink);color:#fff;padding:62px 0 50px;border-top:1px solid #3A3A3A;border-bottom:1px solid #3A3A3A;}
+  .part .wrap{display:flex;align-items:flex-end;gap:28px;}
+  .part .pnum{font-family:var(--num);font-size:82px;line-height:.85;color:var(--gold);letter-spacing:-.02em;}
+  .part h2{font-size:38px;letter-spacing:-.02em;line-height:1.1;}
+  .part p{color:#B8B0A4;font-size:13.5px;margin-top:10px;max-width:52em;}
+  /* market calendar module */
+  .cal{margin-top:34px;background:var(--white);border:1px solid var(--line);box-shadow:var(--shadow);break-inside:avoid;}
+  .cal-head{background:var(--navy);color:#fff;display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:14px 20px;}
+  .cal-head .cal-kicker{font-family:var(--num);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);}
+  .cal-head .cal-title{font-size:17px;font-weight:700;letter-spacing:0;line-height:1.3;margin-left:10px;}
+  .cal-head .cal-meta{font-family:var(--num);font-size:11px;letter-spacing:.06em;color:#B9C4D8;white-space:nowrap;}
+  .cal-body{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);}
+  .cal-rail{border-right:1px solid var(--line);display:flex;flex-direction:column;}
+  .cal-item{border-left:3px solid transparent;border-bottom:1px solid var(--line);background:var(--white);outline:none;transition:background .15s,border-color .15s;}
+  .cal-item:last-child{border-bottom:0;}
+  .cal-item:hover,.cal-item:focus-visible,.cal-item.active{background:#FBF3E8;border-left-color:var(--red);}
+  .cal-item:focus-visible{outline:2px solid var(--ink);outline-offset:-2px;}
+  .cal-item.is-flagship{border-left-color:var(--gold);}
+  .cal-item.is-flagship:hover,.cal-item.is-flagship:focus-visible,.cal-item.is-flagship.active{background:#FBF2DE;border-left-color:var(--gold);}
+  .cal-row{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:16px;align-items:center;padding:15px 20px;cursor:pointer;}
+  .cal-item.is-flagship .cal-row{padding-top:19px;padding-bottom:19px;}
+  .cal-item .cal-date .m{display:block;font-family:var(--num);font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--red);line-height:1.2;}
+  .cal-item.is-flagship .cal-date .m{color:var(--gold);}
+  .cal-item .cal-date .d{display:block;font-family:var(--num);font-size:20px;font-weight:600;letter-spacing:-.01em;line-height:1.15;margin-top:3px;}
+  .cal-item .cal-info{min-width:0;}
+  .cal-item .cal-name{font-weight:700;font-size:15px;line-height:1.35;letter-spacing:0;}
+  .cal-item.is-flagship .cal-name{font-size:16.5px;}
+  .cal-item .cal-sub{font-size:12px;color:var(--muted);line-height:1.5;margin-top:3px;font-family:var(--num);}
+  .cal-item .cal-tag{font-family:var(--num);font-size:8.5px;font-weight:700;letter-spacing:.1em;color:#8E6A12;background:#FFF3D6;border:1px solid rgba(201,162,39,.55);padding:2px 6px;white-space:nowrap;align-self:center;}
+  .cal-panel{border-left:1px solid var(--line);padding:22px 22px 18px;background:var(--white);}
+  .cal-item-detail{display:none;}
+  .cal .d-tag{display:inline-block;font-family:var(--num);font-size:8.5px;font-weight:700;letter-spacing:.1em;color:#8E6A12;background:#FFF3D6;border:1px solid rgba(201,162,39,.55);padding:2px 6px;}
+  .cal .d-name{font-size:21px;font-weight:700;letter-spacing:0;line-height:1.3;margin-top:0;}
+  .cal .d-tag + .d-name{margin-top:8px;}
+  .cal .d-meta{font-family:var(--num);font-size:12px;color:var(--muted);letter-spacing:.02em;margin-top:7px;line-height:1.5;}
+  .cal .d-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px 12px;margin-top:18px;padding-top:16px;border-top:1px solid var(--line);}
+  .cal .d-stat .v{font-family:var(--num);font-size:23px;font-weight:600;letter-spacing:-.01em;line-height:1.05;}
+  .cal .d-stat .v small{font-size:12px;color:var(--muted);font-weight:500;}
+  .cal .d-stat .k{font-size:10.5px;color:var(--muted);margin-top:4px;line-height:1.4;}
+  .cal .d-sec{font-family:var(--num);font-size:12.5px;color:var(--ink);line-height:1.55;margin-top:14px;padding-top:13px;border-top:1px solid var(--line);}
+  .cal .d-facts{margin-top:14px;padding-top:13px;border-top:1px solid var(--line);}
+  .cal .d-facts .f-lbl{font-family:var(--num);font-size:9.5px;font-weight:700;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;margin-bottom:8px;}
+  .cal .d-facts ul{list-style:none;}
+  .cal .d-facts li{font-size:12.5px;line-height:1.6;padding-left:13px;position:relative;margin-bottom:6px;}
+  .cal .d-facts li:last-child{margin-bottom:0;}
+  .cal .d-facts li::before{content:"";position:absolute;left:0;top:.6em;width:5px;height:5px;background:var(--gold);}
+  @media(max-width:980px){
+    .cal-body{grid-template-columns:1fr;}
+    .cal-rail{border-right:0;border-bottom:1px solid var(--line);}
+    .cal-panel{display:none;border-left:0;}
+    .cal-item.active .cal-item-detail{display:block;padding:16px 18px 18px;border-top:1px solid var(--line);background:#FBF7EF;}
+    .cal-row{grid-template-columns:60px minmax(0,1fr) auto;gap:14px;padding:14px 16px;}
+  }
+  @media(max-width:620px){
+    .cal-head{flex-wrap:wrap;}
+    .cal-row{grid-template-columns:54px minmax(0,1fr);gap:12px;}
+    .cal-item .cal-tag{grid-column:2;justify-self:start;}
+    .cal .d-stats{grid-template-columns:repeat(2,1fr);}
+  }
+
+  @media(max-width:980px){.part .pnum{font-size:52px;}.part h2{font-size:28px;}}
+  @media(max-width:620px){.part .wrap{gap:18px;}}
+
+  /* intro / platform strength */
+  #scale{background:var(--white);}
+  .intro-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin:6px 0 30px;}
+  .intro-stats .v{font-family:var(--num);font-size:28px;font-weight:600;line-height:1.1;}
+  .intro-stats .v small{font-size:13px;font-weight:500;margin-left:3px;}
+  .intro-stats .k{font-size:11.5px;color:var(--muted);margin-top:5px;line-height:1.45;}
+  .intro-grid{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);gap:24px;align-items:stretch;}
+  .quad{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .qpanel{background:var(--white);border:1px solid var(--line);border-top:2px solid var(--ink);padding:16px 16px 14px;min-width:0;box-shadow:var(--shadow);}
+  .qhead{display:flex;align-items:baseline;justify-content:space-between;gap:10px;}
+  .qhead b{font-size:13.5px;}
+  .qhead span{font-family:var(--num);font-size:9.5px;color:var(--muted);letter-spacing:.03em;}
+  .vbars{display:flex;align-items:flex-end;gap:12px;height:190px;border-bottom:1px solid var(--line);padding:18px 4px 0;margin-top:6px;}
+  .vb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;}
+  .vb .val{font-family:var(--num);font-size:10.5px;color:var(--ink);margin-bottom:4px;white-space:nowrap;}
+  .vb .bar{width:100%;max-width:38px;background:#D8D2C8;min-height:3px;}
+  .vb.citic .bar{background:var(--red);}
+  .vb.gtht .bar{background:var(--navy);}
+  .vb .lb{font-size:10px;color:var(--muted);margin-top:7px;white-space:nowrap;}
+  .vb.citic .lb{color:var(--red);font-weight:700;}
+  .qnote{font-size:10px;color:var(--muted);line-height:1.45;margin-top:9px;min-height:28px;}
+  .market{background:var(--ink);color:#fff;border-top:2px solid var(--gold);padding:20px 20px 16px;display:flex;flex-direction:column;box-shadow:var(--shadow);}
+  .mhead{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid #3A3A3A;padding-bottom:11px;}
+  .mhead b{font-size:14px;}
+  .mhead span{font-family:var(--num);font-size:9.5px;color:#9A948A;letter-spacing:.05em;}
+  .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;margin-top:16px;}
+  .m .v{font-family:var(--num);font-size:25px;line-height:1.05;color:var(--gold);font-weight:600;}
+  .m .v small{font-size:12px;margin-left:2px;}
+  .m .k{font-size:10.5px;color:#C9C1B5;line-height:1.45;margin-top:4px;}
+  .mnote{font-size:10px;color:#9A948A;line-height:1.55;border-top:1px solid #3A3A3A;padding-top:12px;margin-top:auto;}
+  @media(max-width:980px){.intro-grid{grid-template-columns:1fr;}.intro-stats{grid-template-columns:1fr 1fr;}.quad{grid-template-columns:1fr 1fr;}}
+  @media(max-width:620px){.quad{grid-template-columns:1fr;}.intro-stats{grid-template-columns:1fr 1fr;}}
+
+  /* global type scale */
+@media screen and (max-width:1599px){
+  body{font-size:16px;}
+  .hero h1{font-size:66px;}
+  .hero .lede{font-size:22px;}
+  .part h2{font-size:42px;}
+  .part p{font-size:15px;}
+  .cta h2{font-size:36px;}
+  .intro-stats .v{font-size:30px;}
+  .intro-stats .k{font-size:14.5px;}
+  .hero .strip .k{font-size:14.5px;}
+  .chead h2{font-size:43px;}
+  .chead p{font-size:18px;}
+  .chead .more{font-size:13.5px;}
+  .prose p{font-size:20px;}
+  .prose .lead{font-size:21px;}
+  .stats .v{font-size:34px;}
+  .stats .k{font-size:14.5px;}
+  .case .nm{font-size:17px;}
+  .case .ds{font-size:15px;}
+  .case .ev{font-size:12px;}
+  .cmp td{font-size:15px;}
+  .cmp th{font-size:13px;}
+  .cf-roster li{font-size:14.5px;}
+  .cf-label{font-size:12px;}
+  .cf-me-roster span{font-size:12.5px;}
+  .cf-me-note{font-size:12.5px;}
+  .cf-head .cf-meta{font-size:12px;}
+  .cf-head .cf-title{font-size:18px;}
+  .cf-head .cf-kicker{font-size:11px;}
+  .cal-name{font-size:16.5px;}
+  .cal-sub{font-size:13.5px;}
+  .cal .d-name{font-size:23px;}
+  .cal .d-meta{font-size:13.5px;}
+  .cal .d-stat .k{font-size:12px;}
+  .cal .d-sec{font-size:14px;}
+  .cal .d-facts li{font-size:14px;}
+  .cal-head .cal-title{font-size:19px;}
+  .cal-head .cal-kicker{font-size:11px;}
+  .cal-head .cal-meta{font-size:11.5px;}
+  .pool-table td{font-size:15px;}
+  .pool-table th{font-size:13px;}
+  .pool-note{font-size:13.5px;}
+  .netmap .cap{font-size:13.5px;}
+  .netmap .cap b{font-size:17px;}
+  .netmap-note{font-size:13px;}
+  .steps .t{font-size:16px;}
+  .steps .d{font-size:14px;}
+  .steps .n{font-size:12.5px;}
+  .trip-arr{font-size:14.5px;}
+  .bt-tag{font-size:12px;}
+  .trip-city{font-size:11.5px;}
+  .bt-dur{font-size:10px;}
+  .footer span{font-size:13.5px;}
+  .topnav{font-size:14px;}
+  .policy-item li{font-size:15px;}
+  .rail li a{font-size:15.5px;}
+  .rail .deep a{font-size:14.5px;}
+  .exec-table td{font-size:14px;}
+  .exec-note{font-size:12.5px;}
+}
+
+</style>
+</head>
+<div class="topbar">
+  <div class="brand"><img src="citic-logo-mark-20261027.png" alt="中信证券" class="logo"></div>
+  <nav class="topnav">
+    <a href="javascript:window.print()">打印 / PDF</a>
+  </nav>
+</div>
+<div class="progress" id="prog"></div>
+
+<aside class="rail">
+  <p class="eyebrow">客户简报</p>
+  <ol id="railList">
+    <li><a href="#scale"><span class="n">00</span>为什么是中信</a></li>
+    <li class="grp">研究</li>
+    <li><a href="#china"><span class="n">01</span>A 股覆盖</a></li>
+    <li><a href="#global"><span class="n">02</span>全球覆盖</a></li>
+    <li><a href="#ca"><span class="n">03</span>Corporate Access</a></li>
+    <li><a href="#policy"><span class="n">04</span>政策 proximity</a></li>
+    <li class="grp">交易</li>
+    <li><a href="#qfi"><span class="n">05</span>QFI 团队</a></li>
+    <li><a href="#sales"><span class="n">06</span>Sales Trading</a></li>
+    <li><a href="#extra"><span class="n">07</span>额外服务</a></li>
+  </ol>
+</aside>
+
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <p class="calli">扎根中国，长期相伴；连接全球，行稳致远</p>
+      <h1>一个入口，<em>研究</em>中国，<br>也<em>做得了交易</em>。</h1>
+      <p class="lede">中信证券为中东主权与长线资金提供：A 股与全球研究、Corporate Access、政策 proximity，以及 QFI 与交易执行。</p>
+      <div class="rule"></div>
+      <div class="strip">
+        <a class="s" href="#qfi"><div class="v num" data-n="346">346</div><div class="k">QFII 客户选择中信（2026Q3）</div></a>
+        <a class="s" href="#qfi"><div class="v num">80<small>%</small></div><div class="k">资产所有者类 QFII 客户与中信交易</div></a>
+        <a class="s" href="#china"><div class="v num" data-n="520" data-suf="+">520+</div><div class="k">分析师（境内 400+ / CLSA 120）</div></a>
+        <a class="s" href="#extra"><div class="v num">2,700<small>+</small></div><div class="k">券池覆盖（只）</div></a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- 00 PLATFORM STRENGTH -->
+  <section class="ch" id="scale">
+    <div class="wrap">
+      <div class="chead"><div class="idx">00</div><div><h2>为什么是中信</h2><p>不是单点强：规模、收入、利润、市场份额——每个维度都在第一梯队。</p></div></div>
+
+      <div class="intro-stats">
+        <div class="s"><div class="v num">496.92<small>亿</small></div><div class="k">2026H1 营收（+50.0%，行业第一）</div></div>
+        <div class="s"><div class="v num">233.43<small>亿</small></div><div class="k">2026H1 归母净利（+69.6%，行业第一）</div></div>
+        <div class="s"><div class="v num">2.47<small>万亿</small></div><div class="k">总资产（2026H1，行业第二）</div></div>
+        <div class="s"><div class="v num">7.81<small>%</small></div><div class="k">加权平均 ROE（半年）</div></div>
+      </div>
+
+      <div class="intro-grid">
+        <div class="quad">
+          <div class="qpanel">
+            <div class="qhead"><b>总资产</b><span>2025A · RMB bn</span></div>
+            <div class="vbars">
+              <div class="vb citic"><div class="val">2,082</div><div class="bar" style="height:148px"></div><div class="lb">中信</div></div>
+              <div class="vb gtht"><div class="val">2,114</div><div class="bar" style="height:150px"></div><div class="lb">国泰海通</div></div>
+              <div class="vb"><div class="val">1,077</div><div class="bar" style="height:77px"></div><div class="lb">华泰</div></div>
+              <div class="vb"><div class="val">783</div><div class="bar" style="height:56px"></div><div class="lb">中金</div></div>
+            </div>
+            <div class="qnote">两家两万亿级“航母”；中信 2.08 万亿，行业第二，领先第三近一万亿。国泰海通为合并口径。</div>
+          </div>
+
+          <div class="qpanel">
+            <div class="qhead"><b>营业收入</b><span>2025A · RMB bn</span></div>
+            <div class="vbars">
+              <div class="vb citic"><div class="val">74.9</div><div class="bar" style="height:150px"></div><div class="lb">中信</div></div>
+              <div class="vb gtht"><div class="val">63.1</div><div class="bar" style="height:126px"></div><div class="lb">国泰海通</div></div>
+              <div class="vb"><div class="val">35.8</div><div class="bar" style="height:72px"></div><div class="lb">华泰</div></div>
+              <div class="vb"><div class="val">28.5</div><div class="bar" style="height:57px"></div><div class="lb">中金</div></div>
+            </div>
+            <div class="qnote">唯一营收超 700 亿元的上市券商；与第二名拉开 117 亿元。</div>
+          </div>
+
+          <div class="qpanel">
+            <div class="qhead"><b>归母净利润</b><span>2025A · RMB bn</span></div>
+            <div class="vbars">
+              <div class="vb citic"><div class="val">30.1</div><div class="bar" style="height:150px"></div><div class="lb">中信</div></div>
+              <div class="vb gtht"><div class="val">27.8</div><div class="bar" style="height:139px"></div><div class="lb">国泰海通</div></div>
+              <div class="vb"><div class="val">16.4</div><div class="bar" style="height:82px"></div><div class="lb">华泰</div></div>
+              <div class="vb"><div class="val">9.8</div><div class="bar" style="height:49px"></div><div class="lb">中金</div></div>
+            </div>
+            <div class="qnote">归母净利行业第一；单家约等于行业后 64 家之和。</div>
+          </div>
+
+          <div class="qpanel">
+            <div class="qhead"><b>经纪业务净收入</b><span>2025A · RMB 亿</span></div>
+            <div class="vbars">
+              <div class="vb citic"><div class="val">147.5</div><div class="bar" style="height:146px"></div><div class="lb">中信</div></div>
+              <div class="vb gtht"><div class="val">151.4</div><div class="bar" style="height:150px"></div><div class="lb">国泰海通</div></div>
+              <div class="vb"><div class="val">91.2</div><div class="bar" style="height:90px"></div><div class="lb">华泰</div></div>
+              <div class="vb"><div class="val">61.7</div><div class="bar" style="height:61px"></div><div class="lb">中金</div></div>
+            </div>
+            <div class="qnote">行业第二，与第一差 3.9 亿元；国泰海通为合并口径。</div>
+          </div>
+        </div>
+
+        <aside class="market">
+          <div class="mhead"><b>Market position</b><span>2025A / 2026H1</span></div>
+          <div class="mgrid">
+            <div class="m"><div class="v">#1</div><div class="k">2025 营收 / 归母净利</div></div>
+            <div class="m"><div class="v">#1</div><div class="k">2025 股权融资 / 债券融资 / 两融 / 资管</div></div>
+            <div class="m"><div class="v num">34.5<small>%</small></div><div class="k">QFI 覆盖率（346 / 1,002）</div></div>
+            <div class="m"><div class="v num">70<small>%</small></div><div class="k">QFI 券商交易经中信</div></div>
+            <div class="m"><div class="v num">30.56<small>%</small></div><div class="k">A 股 IPO 承销份额（2026H1 #1）</div></div>
+            <div class="m"><div class="v num">6.96<small>%</small></div><div class="k">公募基金 A+H 交易量份额（WIND #1）</div></div>
+            <div class="m"><div class="v num">25<small>%</small></div><div class="k">SBL 市场份额</div></div>
+            <div class="m"><div class="v">#2</div><div class="k">总资产 / 经纪净收入（第一梯队）</div></div>
+          </div>
+          <div class="mnote">经纪净收入 147.5 亿元，与第一差 3.9 亿元；港股 IPO 保荐单数市场第二。数字为 2025A / 2026H1 口径，国泰海通为合并口径。</div>
+        </aside>
+      </div>
+
+      <div class="callout" style="margin-top:30px"><b>一个平台</b>研究、交易、项目在同一张桌上——下面分研究和交易两条线。</div>
+    </div>
+  </section>
+
+  <!-- PART 1 -->
+  <section class="part" id="research">
+    <div class="wrap">
+      <div class="pnum">01</div>
+      <div><h2>研究</h2><p>覆盖、Access、政策——研究不是一份报告，是一套能用的资源。</p></div>
+    </div>
+  </section>
+
+  <!-- 01 CHINA -->
+  <section class="ch" id="china">
+    <div class="wrap">
+      <div class="chead"><div class="idx">01</div><div><h2>A 股覆盖</h2><p>12 大组、64 专业组、400+ 分析师；A 股市值覆盖 70%，港股 85%。</p></div></div>
+      <div class="two right">
+        <div class="viz">
+          <div class="cap"><b>研究覆盖（家）</b><span>截至 2025 年底</span></div>
+          <div class="bars">
+            <div class="bar"><span class="lb">A 股</span><span class="track"><span class="fill" data-w="100"></span></span><span class="vv">1,568</span></div>
+            <div class="bar"><span class="lb">港股</span><span class="track"><span class="fill ink" data-w="28.9"></span></span><span class="vv">453</span></div>
+            <div class="bar"><span class="lb">中概股</span><span class="track"><span class="fill ink" data-w="3.2"></span></span><span class="vv">50+</span></div>
+          </div>
+        </div>
+        <div class="prose">
+          <p class="lead">"这个行业谁在看、团队在哪个城市"——可以具体到人。</p>
+          <p><strong>12 大组（5 总量 + 7 产业）· 64 个专业组</strong>：宏观与政策（杨帆）、策略（包承超）、FICC（明明，首席经济学家）、量化与配置（赵文荣）；科技（许英博 / 电子 徐涛）、消费（姜娅）、医疗健康（陈竹）。</p>
+        </div>
+      </div>
+
+      <div class="cards3">
+        <div class="card3">
+          <div class="top red"><span class="big">京</span><span class="en">BEIJING</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M6 17h12M7 13h10M9 9h6M12 5v4"/></svg></span></div>
+          <div class="body"><div class="label">总量 · 电子 · 能源材料</div><h3>看得懂政策与硬科技</h3><p>宏观与政策、电子、能源材料、汽车、军工、金融非银——领导多在京。</p></div>
+        </div>
+        <div class="card3">
+          <div class="top blue"><span class="big">沪</span><span class="en">SHANGHAI</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M9 21l3-8 3 8M9.5 9h5M10.5 6h3"/></svg></span></div>
+          <div class="body"><div class="label">策略 · 消费 · 医药</div><h3>看得懂消费与创新</h3><p>策略、消费、医药、传媒、能源化工——A 股策略与消费研究的主力在上海。</p></div>
+        </div>
+        <div class="card3">
+          <div class="top ink"><span class="big">深</span><span class="en">SHENZHEN</span><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21V7l4-4 4 4v14M8 21h8M10.5 10h3M10.5 14h3M10.5 18h3"/></svg></span></div>
+          <div class="body"><div class="label">制造 · 通信 · 前瞻</div><h3>看得懂制造与海外</h3><p>制造、通信、前瞻（美股）、金融、公用环保——先进制造与海外映射在这里。</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 GLOBAL -->
+  <section class="ch darkband" id="global">
+    <div class="wrap">
+      <div class="chead"><div class="idx">02</div><div><h2>全球覆盖</h2><p>CLSA 是中信证券国际（CSI）——120 名撰写分析师、16 个市场、2,110 家公司。</p></div></div>
+      <div class="two left">
+        <div class="prose">
+          <p class="lead">CLSA 是中信证券全资子公司、境外业务平台，也就是中信证券国际（CSI）。</p>
+          <p>一个入口，同时拿到 A 股、港股、中概与亚太；本地分析师看本地市场——<strong>韩国存储、日本半导体设备、印度消费、东盟金融</strong>。</p>
+          <p>美股现在由境内前瞻组覆盖纯美股，按软件、硬件、互联网分工。</p>
+          <p>CLSA 美国科技团队是本地团队、base 在美国，聚焦台积电、英伟达、SpaceX 这类大票；日韩、欧洲的 regional 覆盖与企业关系，CLSA 更强。</p>
+          <div class="stats four" style="margin-top:24px">
+            <div class="s"><div class="v num">120</div><div class="k">撰写分析师</div></div>
+            <div class="s"><div class="v num">200+</div><div class="k">研究团队</div></div>
+            <div class="s"><div class="v num">16</div><div class="k">市场</div></div>
+            <div class="s"><div class="v num">2,110</div><div class="k">覆盖公司</div></div>
+          </div>
+          <div class="callout"><b>90%</b> CITIC CLSA 客户中的主权基金、养老金与央行，选择其作为主交易券商。</div>
+        </div>
+        <div>
+          <div class="cap" style="color:#B8B0A4;font-size:12.5px;margin-bottom:14px;display:flex;justify-content:space-between"><b style="color:#fff;font-size:14px">CLSA 覆盖的 16 个市场</b><span>since 1986</span></div>
+          <div class="ledger">
+            <span class="home">中国大陆</span><span class="home">中国香港</span><span class="home">中国台湾</span><span>日本</span>
+            <span>韩国</span><span>印度</span><span>印尼</span><span>马来西亚</span>
+            <span>新加坡</span><span>泰国</span><span>菲律宾</span><span>斯里兰卡</span>
+            <span>澳大利亚</span><span class="global">美国</span><span class="global">英国</span><span class="global">荷兰</span>
+          </div>
+          <div style="font-size:11.5px;color:#9A948A;border-top:1px solid #3A3A3A;margin-top:16px;padding-top:8px;line-height:1.55">红格为"一个中国"三个市场，灰格为欧美延伸覆盖。</div>
+        </div>
+      </div>
+
+      <div class="viz netmap" id="clsa-network">
+        <div class="cap"><b>中信国际 · 环球业务网络</b><span>业务网络 15 国 · 研究覆盖 16 市场</span></div>
+        <div class="netmap-img"><img src="clsa-global-network.png" alt="中信里昂证券环球业务网络：覆盖亚洲、大洋洲、欧洲和美洲的 15 个国家"></div>
+        <div class="netmap-note">* 合资或联营公司；中国台湾通过里昂证券台湾分支机构开展业务。研究覆盖 16 个市场、业务网络 15 个国家。<a href="clsa-global-network.png" target="_blank" rel="noopener">查看大图 →</a></div>
+      </div>
+
+      <div class="viz" style="margin-top:34px">
+        <div class="cap"><b>美股覆盖：两条线</b><span>境内前瞻组（纯美股）+ CLSA 美国团队</span></div>
+        <div class="cases">
+          <div class="case"><div class="nm">境内 · 前瞻组</div><div class="ds">覆盖纯美股；软件：杨宗轩、天昊；硬件：俞好好；互联网；高飞翔覆盖 Anthropic。小范围 AR（分析师交流）/ NDR（管理层路演）；有专门对接人。</div><div class="ev">onshore · 全市场</div></div>
+          <div class="case"><div class="nm">CLSA · 美国科技团队</div><div class="ds">本地团队，均 base 在美国；负责人为前摩根士丹利（MS）head of tech。聚焦台积电、英伟达、SpaceX 等大票，偏本地视角与英文沟通。</div><div class="ev">offshore</div></div>
+        </div>
+      </div>
+
+      <div class="viz" style="margin-top:34px">
+        <div class="cap"><b>研究平台 · 同业对比</b><span>公开口径 / 2025A · 2026H1</span></div>
+        <table class="cmp">
+          <thead><tr><th>指标</th><th>中信证券</th><th>中金公司</th><th>国泰海通</th><th>华泰证券</th></tr></thead>
+          <tbody>
+            <tr><td class="hl">研究团队人数</td><td>520+（境内 400+ / CLSA 120）</td><td>320+</td><td>300+（研究所整体约 600 人）</td><td>200+</td></tr>
+            <tr><td class="hl">中证协登记分析师</td><td>约 301</td><td>344</td><td>303</td><td>181</td></tr>
+            <tr><td class="hl">覆盖公司数</td><td>约 2,070（A 1,568 / H 453 / ADR 50+）</td><td>1,900+</td><td>未披露</td><td>1,417（2025H1）</td></tr>
+            <tr><td class="hl">覆盖市场 / 交易所</td><td>16 个市场（CLSA）</td><td>7 个交易所</td><td>未披露</td><td>未披露</td></tr>
+          </tbody>
+        </table>
+        <div style="font-size:10.5px;color:#9A948A;line-height:1.6;margin-top:10px">注：研究团队为公司公开口径，中信含 CLSA 与非登记研究员；登记分析师为中证协 2025-09 口径（媒体统计）。覆盖公司数口径不完全一致：中信含 A/H/中概多地上市，中金覆盖 7 个交易所，华泰为 2025H1；国泰海通未披露可比覆盖数。</div>
+        <div class="callout" style="margin-top:18px"><b>结论</b>在四家已披露口径中，研究团队规模、覆盖公司数、境外市场数均为第一；登记分析师数量处于行业前三。</div>
+      </div>
+
+      <div class="viz" style="margin-top:34px">
+        <div class="cap"><b>旗舰分析师与产品</b><span>CLSA</span></div>
+        <div class="cases">
+          <div class="case"><div class="nm">Alex Redman</div><div class="ds">首席股票策略师；前瑞信全球新兴市场策略负责人，25 年卖方经验</div><div class="ev">strategy</div></div>
+          <div class="case"><div class="nm">Nicholas Smith</div><div class="ds">日本策略；Asiamoney 日本策略分析师第一名，九次夺冠</div><div class="ev">Japan</div></div>
+          <div class="case"><div class="nm">Laurence Balanco</div><div class="ds">区域量化 / 技术分析；Asiamoney 连续多年最佳区域量化/技术分析师</div><div class="ev">quant</div></div>
+          <div class="case"><div class="nm">Indranil Sen Gupta</div><div class="ds">印度研究主管；前美银证券经济学家兼印度股票研究联席主管</div><div class="ev">India</div></div>
+        </div>
+        <p style="font-size:12px;color:#C9C1B5;line-height:1.6;margin-top:14px">研究产品：CLSA U · 中国现实研究（CRR）· SUSTAIN ASIA · PRICE ACTION。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 CA -->
+  <section class="ch" id="ca">
+    <div class="wrap">
+      <div class="chead"><div class="idx">03</div><div><h2>Corporate Access</h2><p>论坛、调研、专家库——对接到上市和非上市公司。</p></div></div>
+      <div class="two right">
+        <div class="viz ca-card">
+          <div class="cap"><b>CA 资源：四层</b><span>上市 / 非上市 / 专家 / 同业</span></div>
+          <div class="policy-list" style="margin-top:2px">
+            <div class="policy-item">
+              <div class="pk">上市公司</div>
+              <ul><li>调研、反路演、1v1、管理层对接</li></ul>
+            </div>
+            <div class="policy-item">
+              <div class="pk">非上市 / Pre-IPO</div>
+              <ul><li>长江存储、硅基流动、光轮智能、齐碳科技、智元机器人、千寻智能、LiblibAI、星辰天合；bespoke 定制调研</li></ul>
+            </div>
+            <div class="policy-item">
+              <div class="pk">行业专家</div>
+              <ul><li>10 个专家库；定期行业专家会；按主题定制专家交流</li></ul>
+            </div>
+            <div class="policy-item">
+              <div class="pk">同业交流</div>
+              <ul><li>策略会期间的外资客户餐叙、通信首席小范围午餐——客户之间的交流</li><li>2027 策略会：11/3 晚外资客户 + 中信分析师餐叙；11/4 中午通信首席午餐</li></ul>
+            </div>
+          </div>
+          <div class="callout"><b>一二级联动</b>研究覆盖 + 金石 portfolio + 投行保荐项目，三条线交叉。</div>
+                  </div>
+        <div class="prose">
+          <p class="lead">我们对接到上市和非上市公司；支撑它的不是一份名单，是平台资源。</p>
+          <div class="stats">
+            <div class="s"><div class="v num">52,000<small>+</small></div><div class="k">2024 路演（次）</div></div>
+            <div class="s"><div class="v num">3,300<small>+</small></div><div class="k">2024 调研（次）</div></div>
+            <div class="s"><div class="v num">59</div><div class="k">2024 论坛（场）</div></div>
+          </div>
+          <p><strong>为什么能约到</strong>：财富委、投行委、中信金石、中证投，往上还有中信集团；presence 与 reach 覆盖广，内部协同高效，能把资源调到同一个客户身上。</p>
+          <p><strong>上市 / 非上市 / IPO</strong>：长江存储、硅基流动、光轮智能、齐碳科技、智元机器人、千寻智能；2026H1 港股 IPO 31 单，牧原、先导、广合、极视角。</p>
+        </div>
+      </div>
+
+      <div class="viz trip-wide">
+        <div class="cap"><b>Bespoke 调研 trip</b><span>按客户需求定制 · 3 个案例</span></div>
+        <div class="trip-grid">
+          <div class="trip-card">
+            <div class="trip-head"><span class="trip-city">成都</span><span class="bt-dur">bespoke</span></div>
+            <div class="trip-client">中东主权基金（科技方向）</div>
+            <div class="trip-arr">四天十几家</div>
+            <div class="bt-tags"><span class="bt-tag">齐碳</span><span class="bt-tag">见山</span><span class="bt-tag">医云</span><span class="bt-tag">阿加厚</span><span class="bt-tag">仁新焊机</span><span class="bt-tag">Walulu</span><span class="bt-tag">SeaArt</span></div>
+          </div>
+          <div class="trip-card">
+            <div class="trip-head"><span class="trip-city">北京</span><span class="bt-dur">1 day</span></div>
+            <div class="trip-client">同基金</div>
+            <div class="trip-arr">战略项目办公室 MD，一天五场</div>
+            <div class="bt-tags"><span class="bt-tag">光轮</span><span class="bt-tag">硅基流动</span><span class="bt-tag">LiblibAI</span><span class="bt-tag">星辰天合</span><span class="bt-tag bt-extra">+ 策略首席一对一</span></div>
+          </div>
+          <div class="trip-card">
+            <div class="trip-head"><span class="trip-city">中国行</span><span class="bt-dur">bespoke</span></div>
+            <div class="trip-client">外资对冲基金</div>
+            <div class="trip-arr">创始人来国内调研</div>
+            <div class="bt-tags"><span class="bt-tag">智元</span><span class="bt-tag">觅蜂派</span><span class="bt-tag">千寻</span><span class="bt-tag">极佳</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="viz trip-wide">
+        <div class="cap"><b>2026 重点产业调研</b><span>美国 / 内蒙 / 贵州 / AI 应用</span></div>
+        <div class="trip-grid two">
+          <div class="trip-card">
+            <div class="trip-head"><span class="trip-city">美国 · 加州</span><span class="bt-dur">5 days</span></div>
+            <div class="trip-client">美国硅谷科技调研</div>
+            <div class="trip-arr">8/31–9/4 · Sandisk、Seagate、Cadence、ServiceNow、Intel、Meta、Zoom、Nvidia、Robinhood、Uber、Coherent、OpenAI</div>
+            <div class="bt-tags"><span class="bt-tag">Nvidia</span><span class="bt-tag">OpenAI</span><span class="bt-tag">Meta</span><span class="bt-tag">Intel</span><span class="bt-tag">Zoom</span><span class="bt-tag">Robinhood</span></div>
+          </div>
+          <div class="trip-card">
+            <div class="trip-head"><span class="trip-city">内蒙 · 呼和浩特</span><span class="bt-dur">1 day</span></div>
+            <div class="trip-client">算力产业调研</div>
+            <div class="trip-arr">9/16 · 和林格尔新区管委会领导座谈，交流数据中心与算电协同投资规模、远期规划；实地考察运营商与主流算力厂商数据中心</div>
+            <div class="bt-tags"><span class="bt-tag">和林格尔新区</span><span class="bt-tag">算电协同</span><span class="bt-tag">数据中心</span><span class="bt-tag">运营商</span></div>
+          </div>
+          <div class="trip-card">
+            <div class="trip-head"><span class="trip-city">贵州</span><span class="bt-dur">1 day</span></div>
+            <div class="trip-client">算力产业调研</div>
+            <div class="trip-arr">10/20 · 政策研究团队组织；三大运营商（移动 / 联通 / 电信）座谈 + 实地，了解算力集群建设情况</div>
+            <div class="bt-tags"><span class="bt-tag">移动</span><span class="bt-tag">联通</span><span class="bt-tag">电信</span><span class="bt-tag">算力集群</span></div>
+          </div>
+          <div class="trip-card">
+            <div class="trip-head"><span class="trip-city">北京 / 杭州 / 上海</span><span class="bt-dur">4 days</span></div>
+            <div class="trip-client">AI 应用产业调研</div>
+            <div class="trip-arr">9/14–17 · 趋动科技、声智科技、LiblibAI、Rokid、一知智能、红熊 AI、阅文集团；覆盖 AI 基础设施、语音智能体、AI 创作、AI 硬件与 IP 内容</div>
+            <div class="bt-tags"><span class="bt-tag">AI 基础设施</span><span class="bt-tag">语音智能体</span><span class="bt-tag">AI 创作</span><span class="bt-tag">AI 硬件</span><span class="bt-tag">IP 内容</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cf" id="client-franchise">
+        <header class="cf-head">
+          <span><span class="cf-kicker">Client Franchise</span><span class="cf-title">客户资源 · 四组</span></span>
+          <span class="cf-meta">代表性客户（部分，排名不分先后）</span>
+        </header>
+        <div class="cf-grid">
+          <div class="cf-col">
+            <div class="cf-label">同业组</div>
+            <div class="cf-desc">保险资管 / 银行理财子</div>
+            <ul class="cf-roster">
+              <li>泰康资产</li><li>新华资产</li><li>国寿资产</li><li>平安资管</li><li>招银理财</li><li>兴银理财</li>
+            </ul>
+          </div>
+          <div class="cf-col">
+            <div class="cf-label">公募组</div>
+            <div class="cf-desc">公募基金</div>
+            <ul class="cf-roster">
+              <li>华夏基金</li><li>嘉实基金</li><li>广发基金</li><li>富国基金</li><li>睿远基金</li>
+            </ul>
+          </div>
+          <div class="cf-col">
+            <div class="cf-label">私募组</div>
+            <div class="cf-desc">私募 / 量化</div>
+            <ul class="cf-roster">
+              <li>高毅资产</li><li>景林资产</li><li>灵均投资</li><li>衍复投资</li><li>倍漾</li><li>星坤</li>
+            </ul>
+          </div>
+          <div class="cf-col">
+            <div class="cf-label">外资组</div>
+            <div class="cf-desc">主权 / 长线 / 投行 / 对冲</div>
+            <ul class="cf-roster">
+              <li>BlackRock</li><li>Fidelity</li><li>GIC</li><li>Temasek</li><li>Bridgewater</li><li>UBS</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cf-me">
+          <div class="cf-me-label"><span class="cf-me-kicker">Middle East</span><span>外资组 · 中东主权 / 长线</span></div>
+          <div class="cf-me-roster"><span>ADIA</span><span>ADIC</span><span>PIF</span><span>KIA</span><span>QIA</span><span>Mubadala</span><span>GOSI</span><span>OIA</span></div>
+          <div class="cf-me-note">覆盖二级投研、QFII 交易、一级 / 一级半、资本引介多层合作</div>
+        </div>
+      </div>
+
+      <div class="cal" id="forum-calendar">
+        <header class="cal-head">
+          <span><span class="cal-kicker">Forum Calendar</span><span class="cal-title">一年论坛日历</span></span>
+          <span class="cal-meta">境外 + 境内</span>
+        </header>
+        <div class="cal-body">
+          <div class="cal-rail">
+            <div class="cal-item" tabindex="0" role="button" aria-expanded="false">
+              <div class="cal-row">
+                <span class="cal-date"><span class="m">MAR</span><span class="d">10–12</span></span>
+                <span class="cal-info"><span class="cal-name">东盟论坛（曼谷）</span><span class="cal-sub">2025：101 家买方 / 197 位投资者</span></span>
+              </div>
+              <div class="cal-item-detail">
+                <div class="d-name">东盟论坛（曼谷）</div>
+                <div class="d-meta">MAR 10–12 · 2025 · 曼谷</div>
+                <div class="d-stats">
+                  <div class="d-stat"><div class="v num">101</div><div class="k">家买方</div></div>
+                  <div class="d-stat"><div class="v num">197</div><div class="k">位投资者</div></div>
+                  <div class="d-stat"><div class="v num">117</div><div class="k">家企业</div></div>
+                  <div class="d-stat"><div class="v num">322</div><div class="k">位高管</div></div>
+                </div>
+                <div class="d-sec num">1,511 场一对一/小组会议 · 6 个考察团 · 23 场主题演讲</div>
+              </div>
+            </div>
+            <div class="cal-item" tabindex="0" role="button" aria-expanded="false">
+              <div class="cal-row">
+                <span class="cal-date"><span class="m">MAY</span><span class="d">19–20</span></span>
+                <span class="cal-info"><span class="cal-name">CLSA Access Japan（东京）</span><span class="cal-sub">2025：251 家买方 / 543 位投资者</span></span>
+              </div>
+              <div class="cal-item-detail">
+                <div class="d-name">CLSA Access Japan（东京）</div>
+                <div class="d-meta">MAY 19–20 · 2025 · 东京</div>
+                <div class="d-stats">
+                  <div class="d-stat"><div class="v num">251</div><div class="k">家买方</div></div>
+                  <div class="d-stat"><div class="v num">543</div><div class="k">位投资者</div></div>
+                  <div class="d-stat"><div class="v num">185</div><div class="k">家企业</div></div>
+                  <div class="d-stat"><div class="v num">657</div><div class="k">位高管</div></div>
+                </div>
+                <div class="d-sec num">3,064 场一对一/小组会议 · 13 个考察团 · 69 场主题演讲</div>
+              </div>
+            </div>
+            <div class="cal-item is-flagship" tabindex="0" role="button" aria-expanded="false">
+              <div class="cal-row">
+                <span class="cal-date"><span class="m">MAY</span><span class="d">27–29</span></span>
+                <span class="cal-info"><span class="cal-name">资本市场论坛（上海）</span><span class="cal-sub">2026：4,000+ 投资者 / 1,000+ 上市公司</span></span>
+                <span class="cal-tag">FLAGSHIP</span>
+              </div>
+              <div class="cal-item-detail">
+                <span class="d-tag">FLAGSHIP</span>
+                <div class="d-name">资本市场论坛（上海）</div>
+                <div class="d-meta">2026.05.27–29 · 上海 · 半年度旗舰</div>
+                <div class="d-stats">
+                  <div class="d-stat"><div class="v num">4,000<small>+</small></div><div class="k">投资者</div></div>
+                  <div class="d-stat"><div class="v num">1,000<small>+</small></div><div class="k">上市公司</div></div>
+                  <div class="d-stat"><div class="v num">100<small>+</small></div><div class="k">业界专家</div></div>
+                  <div class="d-stat"><div class="v num">12</div><div class="k">场分论坛</div></div>
+                </div>
+                <div class="d-facts">
+                  <div class="f-lbl">Key facts</div>
+                  <ul><li>首日主论坛，后两天 12 场分论坛</li><li>覆盖宏观政策、全球市场、AI 算力、医药、消费等</li></ul>
+                </div>
+              </div>
+            </div>
+            <div class="cal-item" tabindex="0" role="button" aria-expanded="false">
+              <div class="cal-row">
+                <span class="cal-date"><span class="m">JUL</span><span class="d">8–9</span></span>
+                <span class="cal-info"><span class="cal-name">全球消费医药主题会议（北京）</span><span class="cal-sub">2026：150 家上市公司 / 2 天</span></span>
+              </div>
+              <div class="cal-item-detail">
+                <div class="d-name">全球消费医药主题会议（北京）</div>
+                <div class="d-meta">2026.07.08–09 · 北京 · 消费 + 医药</div>
+                <div class="d-stats">
+                  <div class="d-stat"><div class="v num">150</div><div class="k">家上市公司</div></div>
+                  <div class="d-stat"><div class="v num">2</div><div class="k">天</div></div>
+                  <div class="d-stat"><div class="v num">260</div><div class="k">首届参会公司</div></div>
+                  <div class="d-stat"><div class="v num">900</div><div class="k">首届投资者</div></div>
+                </div>
+                <div class="d-facts">
+                  <div class="f-lbl">Key facts</div>
+                  <ul><li>医药创新 / 消费创新 / 未来消费</li><li>首届配套 5 条特色调研线路</li></ul>
+                </div>
+              </div>
+            </div>
+            <div class="cal-item is-flagship" tabindex="0" role="button" aria-expanded="false">
+              <div class="cal-row">
+                <span class="cal-date"><span class="m">SEP</span><span class="d">21–24</span></span>
+                <span class="cal-info"><span class="cal-name">投资者论坛（香港）</span><span class="cal-sub">2025：627 家买方 / 1,877 位投资者</span></span>
+                <span class="cal-tag">FLAGSHIP</span>
+              </div>
+              <div class="cal-item-detail">
+                <span class="d-tag">FLAGSHIP</span>
+                <div class="d-name">投资者论坛（香港）</div>
+                <div class="d-meta">SEP 21–24 · 2025 · 香港 · 全球旗舰</div>
+                <div class="d-stats">
+                  <div class="d-stat"><div class="v num">627</div><div class="k">家买方</div></div>
+                  <div class="d-stat"><div class="v num">1,877</div><div class="k">位投资者</div></div>
+                  <div class="d-stat"><div class="v num">433</div><div class="k">家公司</div></div>
+                  <div class="d-stat"><div class="v num">1,064</div><div class="k">位高管</div></div>
+                </div>
+                <div class="d-sec num">4,206 场一对一/小组会议 · 16 个考察团 · 72 场主题演讲</div>
+                <div class="d-facts">
+                  <div class="f-lbl">Key facts</div>
+                  <ul>
+                    <li>30+ 年历史；2,000+ 投资者；380+ 家公司；2,370+ 场会议</li>
+                    <li>100+ 演讲嘉宾；850+ 分析师会议；600+ 中信/CLSA 同事</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="cal-item is-flagship" tabindex="0" role="button" aria-expanded="false">
+              <div class="cal-row">
+                <span class="cal-date"><span class="m">NOV</span><span class="d">3–5</span></span>
+                <span class="cal-info"><span class="cal-name">资本市场策略会（武汉）</span><span class="cal-sub">2026：4,000+ 参会 / 1,000+ 上市公司</span></span>
+                <span class="cal-tag">FLAGSHIP</span>
+              </div>
+              <div class="cal-item-detail">
+                <span class="d-tag">FLAGSHIP</span>
+                <div class="d-name">资本市场策略会（武汉）</div>
+                <div class="d-meta">2026.11.03–05 · 武汉 · 内地旗舰</div>
+                <div class="d-stats">
+                  <div class="d-stat"><div class="v num">4,000<small>+</small></div><div class="k">参会</div></div>
+                  <div class="d-stat"><div class="v num">1,000<small>+</small></div><div class="k">上市公司</div></div>
+                  <div class="d-stat"><div class="v num">100<small>+</small></div><div class="k">发言嘉宾</div></div>
+                  <div class="d-stat"><div class="v num">1,000<small>+</small></div><div class="k">场小范围交流与本地调研</div></div>
+                </div>
+                <div class="d-facts">
+                  <div class="f-lbl">Key facts</div>
+                  <ul>
+                    <li>首日主论坛，后两天 13 场分会场</li>
+                    <li>覆盖 AI 硬件、AI 应用、AI 电源、AI 制药、量化、私募、港股上市制度改革、红利/REITs、睿见智库等</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="cal-item" tabindex="0" role="button" aria-expanded="false">
+              <div class="cal-row">
+                <span class="cal-date"><span class="m">NOV</span><span class="d">16–18</span></span>
+                <span class="cal-info"><span class="cal-name">印度论坛（孟买）</span><span class="cal-sub">2025：139 家买方 / 322 位投资者</span></span>
+              </div>
+              <div class="cal-item-detail">
+                <div class="d-name">印度论坛（孟买）</div>
+                <div class="d-meta">NOV 16–18 · 2025 · 孟买</div>
+                <div class="d-stats">
+                  <div class="d-stat"><div class="v num">139</div><div class="k">家买方</div></div>
+                  <div class="d-stat"><div class="v num">322</div><div class="k">位投资者</div></div>
+                  <div class="d-stat"><div class="v num">93</div><div class="k">家企业</div></div>
+                  <div class="d-stat"><div class="v num">242</div><div class="k">位高管</div></div>
+                </div>
+                <div class="d-sec num">1,432 场一对一/小组会议 · 12 个考察团 · 17 场主题演讲</div>
+              </div>
+            </div>
+            <div class="cal-item" tabindex="0" role="button" aria-expanded="false">
+              <div class="cal-row">
+                <span class="cal-date"><span class="m">NOV</span><span class="d">&nbsp;</span></span>
+                <span class="cal-info"><span class="cal-name">武汉企业论坛（武汉）</span><span class="cal-sub">长江存储 · 中信境内</span></span>
+              </div>
+              <div class="cal-item-detail">
+                <div class="d-name">武汉企业论坛（武汉）</div>
+                <div class="d-meta">NOV · 武汉 · 中信境内</div>
+                <div class="d-facts">
+                  <div class="f-lbl">Key facts</div>
+                  <ul>
+                    <li>依托长江存储，2027 年保荐项目</li>
+                    <li>配套光通信等产业链调研</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="cal-panel" aria-live="polite">
+            <div class="cal-panel-body"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 04 POLICY -->
+  <section class="ch" id="policy">
+    <div class="wrap">
+      <div class="chead"><div class="idx">04</div><div><h2>政策 proximity</h2><p>从智库、首席经济学家到"谈经论策"——政策不是二手解读。</p></div></div>
+      <div class="two right">
+        <div class="viz" style="align-self:start">
+          <div class="cap"><b>政策通道 · 关键事实</b><span>中信智库</span></div>
+          <div class="cases">
+            <div class="case"><div class="nm">官方课题</div><div class="ds">国办 / 发改委 / 财政部 / 央行交办课题</div><div class="ev">研究前置</div></div>
+            <div class="case"><div class="nm">总理座谈会</div><div class="ds">明明：2026.01.19 首场专家企业家座谈会，9 名发言人中唯一卖方首席</div><div class="ev">policy proximity</div></div>
+            <div class="case"><div class="nm">谈经论策 · 第八届</div><div class="ds">2026.04.09 北京，300+ 投资者；人大中东研究所所长田文林讲地缘外溢</div><div class="ev">policy dialogue</div></div>
+            <div class="case"><div class="nm">国家高端智库</div><div class="ds">中信改革发展研究基金会，2017 年入选国家高端智库建设培育单位</div><div class="ev">group-level</div></div>
+          </div>
+        </div>
+        <div class="prose">
+          <div class="policy-list">
+            <div class="policy-item">
+              <div class="pk">智库「睿见」</div>
+              <ul>
+                <li>2026-05-29 推出，执行院长 <strong>秦培景、徐涛</strong></li>
+                <li>议题：AI、地缘、能源资源、城市更新、资本市场开放与人民币国际化</li>
+                <li>承接国办 / 发改委 / 财政部 / 央行交办课题</li>
+              </ul>
+            </div>
+            <div class="policy-item">
+              <div class="pk">首席经济学家 明明</div>
+              <ul>
+                <li>央行货币政策司出身</li>
+                <li>2026-01-19 李强总理座谈会，讨论《政府工作报告》和“十五五”规划纲要草案</li>
+                <li><strong class="red">9 名发言人中唯一的卖方首席</strong></li>
+              </ul>
+            </div>
+            <div class="policy-item">
+              <div class="pk">谈经论策 · 第八届</div>
+              <ul>
+                <li>2018 年创办；2026-04-09 北京</li>
+                <li>300+ 投资者；两场主论坛 + 银行信贷、保险配置、量化资金闭门会</li>
+                <li>嘉宾：国家金融与发展实验室、发改委国家信息中心、清华、人大中东研究所</li>
+              </ul>
+            </div>
+            <div class="policy-item">
+              <div class="pk">客户能用什么</div>
+              <ul>
+                <li><strong>读得早</strong>：十五五 / 两会 / 政治局会议即时解读</li>
+                <li><strong>见得到人</strong>：闭门会与专家交流</li>
+                <li><strong>问得具体</strong>：能源转型、人民币国际化、中国—中东产业合作、QFI 规则，可做定制 briefing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PART 2 -->
+  <section class="part" id="trading">
+    <div class="wrap">
+      <div class="pnum">02</div>
+      <div><h2>交易</h2><p>QFI、Sales Trading、收益增强——把研究变成仓位。</p></div>
+    </div>
+  </section>
+
+  <!-- 05 QFI -->
+  <section class="ch" id="qfi">
+    <div class="wrap">
+      <div class="chead"><div class="idx">05</div><div><h2>QFI 团队</h2><p>不是一张牌照，是一支 24 人的专职团队。</p></div></div>
+      <div class="two left">
+        <div class="prose">
+          <p class="lead">截至 2026Q3，1,002 家 QFI 中 <strong>346 家</strong>选择中信（34.5%）；<strong>80%</strong> 资产所有者类 QFI 客户与中信交易。</p>
+          <div class="stats four">
+            <div class="s"><div class="v num">346<small>/1,002</small></div><div class="k">QFI 客户</div></div>
+            <div class="s"><div class="v num">80<small>%</small></div><div class="k">资产所有者</div></div>
+            <div class="s"><div class="v num">70<small>%</small></div><div class="k">券商交易</div></div>
+            <div class="s"><div class="v num">24</div><div class="k">专职 sales</div></div>
+          </div>
+          <p><strong>2026Q1–Q3</strong>：净新增 QFI 客户 21 家（新批 74 家，开户率 28.4%）；净收入 10 亿元，同比 +68%，完成率 126%。</p>
+          <p>2025 年中国内地及香港市场佣金 <strong>15.45 亿美元</strong>，中信证券国际份额约 <strong>8%</strong>，中资券商第一；香港市场第 5，综合第 7。</p>
+          <div class="callout"><b>对主权客户</b>QFI 是打新、债券、全市场的入口；团队、牌照、托管、研究在同一条线上。</div>
+        </div>
+        <div class="viz">
+          <div class="cap"><b>CITICS vs 同业</b><span>QFI 业务对比 · Deals / Block / SBL 指 QFI 相关业务</span></div>
+          <table class="cmp">
+            <thead><tr><th>维度</th><th>中信证券</th><th>合资同业</th><th>中资同业</th></tr></thead>
+            <tbody>
+              <tr><td class="hl">研究</td><td>400+ 撰写分析师</td><td>30–50</td><td>100–150</td></tr>
+              <tr><td class="hl">QFI 团队</td><td>24 名专职</td><td>3–5 名通用 sales</td><td>新建小团队</td></tr>
+              <tr><td class="hl">Deals</td><td>#1 · 份额 24%</td><td>无相关牌照</td><td>规模较小</td></tr>
+              <tr><td class="hl">Block trades</td><td>#1 · 份额 15.34%</td><td>无相关牌照</td><td>规模较小</td></tr>
+              <tr><td class="hl">SBL</td><td>#1 · 份额 25%</td><td>无相关牌照</td><td>规模较小</td></tr>
+              <tr><td class="hl">EQD</td><td>高收益（指数 +8%）</td><td>收益较低</td><td>资本规模较小</td></tr>
+              <tr><td class="hl">资产负债表</td><td>行业第二</td><td>非常有限</td><td>多数较小</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="viz" style="margin-top:34px">
+        <div class="cap"><b>三条通道</b><span>QFI / Swap / Connect · 三种可组合，非二选一</span></div>
+        <table class="cmp">
+          <thead><tr><th>通道</th><th>能投什么</th><th>看点</th></tr></thead>
+          <tbody>
+            <tr><td class="hl">QFI</td><td>全市场：A 股、债券、IPO 打新、期货衍生</td><td>打新（主权最大吸引力）</td></tr>
+            <tr><td class="hl">QFI Swap</td><td>A 股合成敞口</td><td>快、可杠杆；QFI 审批期过渡</td></tr>
+            <tr><td class="hl">Stock Connect</td><td>仅互联互通 A 股</td><td>简单、低成本；无打新/债券</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 SALES TRADING -->
+  <section class="ch" id="sales">
+    <div class="wrap">
+      <div class="chead"><div class="idx">06</div><div><h2>Sales Trading</h2><p>资深 sales trader，加上多年服务 SWF 的经验。</p></div></div>
+      <div class="two right">
+        <div class="viz">
+          <div class="cap"><b>全球执行能力</b><span>CLSA / CSI</span></div>
+          <div class="stats four">
+            <div class="s"><div class="v num">80+</div><div class="k">全球交易所</div></div>
+            <div class="s"><div class="v num">95<small>%</small></div><div class="k">覆盖全球市值</div></div>
+            <div class="s"><div class="v num">3,500</div><div class="k">机构客户</div></div>
+            <div class="s"><div class="v num">400</div><div class="k">机构股票专业人士</div></div>
+          </div>
+          <div class="callout" style="margin-top:24px"><b>亚洲</b>High-touch 交易排名第一；亚洲机构股票市场份额 14%。</div>
+          <button class="exec-open" id="execOpen" type="button">查看亚太 16 市场执行能力 →</button>
+        </div>
+        <div class="prose st-prose">
+          <p class="lead">对中东长线，交易不是下单，是 access China 的一整套流程。</p>
+          <div class="st-services">
+            <div class="st-service">
+              <div class="st-label"><span class="n">01</span>资深 sales trader</div>
+              <p>多年服务主权基金的经验；提供 market color、流动性判断和执行建议。</p>
+            </div>
+            <div class="st-service">
+              <div class="st-label"><span class="n">02</span>Access China</div>
+              <p>推荐托管行、协助 QFI 牌照申请、开户与交易流程；研究、交易、托管一条线。</p>
+            </div>
+            <div class="st-service">
+              <div class="st-label"><span class="n">03</span>可靠执行</div>
+              <p>全球 80+ 交易所、覆盖 95% 市值；亚洲 high-touch 第一。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="steps" style="margin-top:24px">
+        <div class="st"><div class="n">01</div><div class="t">开户 / 托管</div><div class="d">推荐托管行，搭建账户与结算</div></div>
+        <div class="st"><div class="n">02</div><div class="t">QFI 牌照</div><div class="d">协助申请、材料与监管沟通</div></div>
+        <div class="st"><div class="n">03</div><div class="t">交易执行</div><div class="d">sales trader 对接，多市场执行</div></div>
+        <div class="st"><div class="n">04</div><div class="t">Market color</div><div class="d">流动性、资金面、交易窗口</div></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- execution capability modal -->
+  <div class="exec-modal" id="execModal" role="dialog" aria-modal="true" aria-labelledby="execTitle">
+    <div class="exec-box">
+      <div class="exec-head">
+        <div><div class="exec-kicker">CLSA / CSI · Asia Execution</div><h3 id="execTitle">亚太 16 个市场：执行能力</h3></div>
+        <button class="exec-close" id="execClose" type="button" aria-label="关闭">×</button>
+      </div>
+      <div class="exec-note">✓ 可执行　— 暂不适用；DMA / Algo、期货期权按市场覆盖不同。</div>
+      <div class="exec-scroll"><table class="exec-table"><thead><tr><th></th><th>澳大利亚</th><th>中国（上海）</th><th>中国（深圳）</th><th>中国（沪深港通）</th><th>香港</th><th>印度</th><th>印度尼西亚</th><th>日本</th><th>韩国</th><th>马来西亚</th><th>巴基斯坦</th><th>菲律宾</th><th>新加坡</th><th>斯里兰卡</th><th>台湾</th><th>泰国</th></tr></thead><tbody><tr><td class="rowlab">交易所会员资格</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td></tr><tr><td class="rowlab">现金交易</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td></tr><tr><td class="rowlab">投资组合交易</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td></tr><tr><td class="rowlab">DMA / Algo</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="na">—</td><td class="ok">✓</td><td class="ok">✓</td><td class="na">—</td><td class="ok">✓</td><td class="ok">✓</td></tr><tr><td class="rowlab">期货期权</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="ok">✓</td><td class="na">—</td><td class="na">—</td><td class="ok">✓</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="ok">✓</td></tr><tr><td class="rowlab">金融衍生品</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td><td class="ok">✓</td></tr></tbody></table></div>
+    </div>
+  </div>
+
+  <!-- 07 EXTRA -->
+  <section class="ch" id="extra">
+    <div class="wrap">
+      <div class="chead"><div class="idx">07</div><div><h2>额外服务</h2><p>持仓借出与收益增强——让长线仓位多一层收益。</p></div></div>
+      <div class="two left">
+        <div class="prose">
+          <p class="lead">长线的持仓相对稳定，可以把部分仓位借出去，增厚收益。</p>
+          <p><strong>证券出借（客户借出）</strong>：中信在境内 SBL 市场份额 <strong>25%</strong>；2026H1 自有券池从 18.5 亿增至 <strong>28.4 亿</strong>；50+ QFI/境外客户；1,500 家企业股东出借人；完成首单 QFI 主权基金证券出借。</p>
+          <p><strong>收益增厚</strong>：股衍台也可以做指数增强等结构，按交易时报价。</p>
+        </div>
+        <div class="viz" style="align-self:start">
+          <div class="cap"><b>SBL 能力</b><span>2026H1</span></div>
+          <div class="stats four">
+            <div class="s"><div class="v num">25<small>%</small></div><div class="k">境内 SBL 市场份额</div></div>
+            <div class="s"><div class="v num">28.4<small>亿</small></div><div class="k">自有券池</div></div>
+            <div class="s"><div class="v num">50<small>+</small></div><div class="k">QFI / 境外客户</div></div>
+            <div class="s"><div class="v num">1,500</div><div class="k">企业股东出借人</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="viz pool">
+        <div class="cap"><b>自建券池 · 结构</b><span>2,744 只 / 28.78 亿元 · 股衍材料</span></div>
+        <div class="pool-scroll">
+          <table class="pool-table">
+            <thead><tr><th>类型</th><th class="n">股票只数</th><th class="n">可借市值（亿元）</th><th class="n">加权平均券息（%）</th></tr></thead>
+            <tbody>
+              <tr><td>沪深300</td><td class="n">254</td><td class="n">9.66</td><td class="n">9.94</td></tr>
+              <tr><td>中证500</td><td class="n">393</td><td class="n">7.19</td><td class="n">14.51</td></tr>
+              <tr><td>中证1000</td><td class="n">820</td><td class="n">6.41</td><td class="n">16.32</td></tr>
+              <tr><td>中证2000</td><td class="n">805</td><td class="n">3.02</td><td class="n">22.92</td></tr>
+              <tr><td>ETF</td><td class="n">139</td><td class="n">1.77</td><td class="n">4.95</td></tr>
+              <tr><td>其他</td><td class="n">477</td><td class="n">2.14</td><td class="n">21.52</td></tr>
+              <tr class="total"><td>汇总</td><td class="n">2,744</td><td class="n">28.78</td><td class="n">13.99</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="pool-note">券源覆盖沪深300、中证500、中证1000、中证2000 成分股及 130+ 只 ETF；自建券池也可向客户出借，支持个股 / ETF 空头（不裸空），本次长线主线重点讲客户借出增厚。表内为股衍材料口径；上方 28.4 亿为 2026H1 自有券池，两个时点略有差异。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="wrap">
+      <h2>从一个研究问题，或一笔交易开始。</h2>
+      <div class="links">
+        <a href="javascript:window.print()">打印为 PDF</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>中信证券 · 机构业务部 ｜ 中东主权客户简报</span>
+  <span>本材料仅供客户沟通使用，不构成投资建议。</span>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var prog = document.getElementById('prog');
+  window.addEventListener('scroll', function(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.width = (h>0 ? (window.scrollY/h*100) : 0) + '%';
+  }, {passive:true});
+
+  var links = [].slice.call(document.querySelectorAll('#railList a'));
+  var secs = links.map(function(a){ return document.querySelector(a.getAttribute('href')); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var i = secs.indexOf(e.target);
+        links.forEach(function(l,j){ l.classList.toggle('on', j===i); });
+      }
+    });
+  }, {rootMargin:'-45% 0px -45% 0px'});
+  secs.forEach(function(s){ if(s) io.observe(s); });
+
+  var fills = [].slice.call(document.querySelectorAll('.fill[data-w]'));
+  function setFillsFinal(){ fills.forEach(function(b){ b.style.width = b.dataset.w + '%'; }); }
+  setFillsFinal();
+
+  var heroNums = [].slice.call(document.querySelectorAll('.hero [data-n]'));
+  function finalText(el){ return parseFloat(el.dataset.n).toLocaleString('en-US') + (el.dataset.suf||''); }
+  heroNums.forEach(function(el){ el.textContent = finalText(el); });
+
+  if(!reduced){
+    requestAnimationFrame(function(){
+      fills.forEach(function(b){ b.style.width = '0%'; });
+      requestAnimationFrame(function(){ setTimeout(setFillsFinal, 120); });
+      heroNums.forEach(function(el){
+        var target = parseFloat(el.dataset.n), suf = el.dataset.suf||'', t0=null, dur=900;
+        function step(t){ if(!t0)t0=t; var p=Math.min(1,(t-t0)/dur); var v=Math.round(target*(1-Math.pow(1-p,3)));
+          el.textContent = v.toLocaleString('en-US')+suf; if(p<1) requestAnimationFrame(step); }
+        el.textContent = '0'+suf; requestAnimationFrame(step);
+      });
+    });
+  }
+
+  window.addEventListener('beforeprint', function(){
+    [].slice.call(document.querySelectorAll('.rv')).forEach(function(el){ el.classList.add('in'); });
+    setFillsFinal();
+    heroNums.forEach(function(el){ el.textContent = finalText(el); });
+  });
+
+  var moreMap = {};
+  [].slice.call(document.querySelectorAll('section.ch')).forEach(function(sec){
+    var dest = moreMap[sec.id]; if(!dest) return;
+    var host = sec.querySelector('.chead'); if(!host) return;
+    var cell = host.children[1] || host;
+    var a = document.createElement('a');
+    a.className = 'more';
+    var isPage = /\.html$/i.test(dest);
+    a.href = isPage ? dest : 'reference-client.html#' + dest;
+    a.textContent = isPage ? '查看研究部架构与覆盖 →' : '深入了解 →';
+    cell.appendChild(a);
+  });
+})();
+</script>
+<script>
+(function(){
+  var cal = document.getElementById('forum-calendar');
+  if(!cal) return;
+  var items = [].slice.call(cal.querySelectorAll('.cal-item'));
+  var panelBody = cal.querySelector('.cal-panel-body');
+  var canHover = window.matchMedia('(hover: hover)').matches;
+  var wuhan = items.filter(function(x){ return x.textContent.indexOf('资本市场策略会（武汉）') >= 0; })[0];
+
+  function mirror(item){
+    if(!panelBody) return;
+    var src = item ? item.querySelector('.cal-item-detail') : null;
+    panelBody.innerHTML = src ? src.innerHTML : '';
+  }
+  function activate(item){
+    items.forEach(function(x){ x.classList.remove('active'); x.setAttribute('aria-expanded','false'); });
+    item.classList.add('active');
+    item.setAttribute('aria-expanded','true');
+    mirror(item);
+  }
+  function toggle(item){
+    if(item.classList.contains('active')){
+      item.classList.remove('active');
+      item.setAttribute('aria-expanded','false');
+      mirror(null);
+    } else {
+      activate(item);
+    }
+  }
+
+  items.forEach(function(item){
+    if(canHover){ item.addEventListener('mouseenter', function(){ activate(item); }); }
+    item.addEventListener('focusin', function(){ activate(item); });
+    item.addEventListener('click', function(e){
+      if(e.target.closest('.cal-item-detail')) return;
+      if(canHover){ activate(item); } else { toggle(item); }
+    });
+    item.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        if(canHover){ activate(item); } else { toggle(item); }
+      }
+    });
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      activate(wuhan || items[0]);
+    }
+  });
+
+  if(wuhan){ activate(wuhan); } else if(items[0]){ activate(items[0]); }
+})();
+</script>
+<script>
+(function(){
+  var modal=document.getElementById('execModal'), open=document.getElementById('execOpen'), close=document.getElementById('execClose');
+  if(!modal||!open||!close) return;
+  function show(){modal.classList.add('open');document.body.style.overflow='hidden';}
+  function hide(){modal.classList.remove('open');document.body.style.overflow='';}
+  open.addEventListener('click',show);
+  close.addEventListener('click',hide);
+  modal.addEventListener('click',function(e){if(e.target===modal) hide();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape') hide();});
+})();
+</script>
+</body>
+</html>
